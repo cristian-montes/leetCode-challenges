@@ -99,3 +99,16 @@ var removeDuplicates = function(nums) {
 return newNum;
 
 };
+
+//27. REMOVE ELEMENT 
+nums = [3,2,2,3], val = 3   
+var removeElement = function(nums, val) {
+    for(let i =nums.length-1; i >= 0; i--){   
+        if( nums[i] === val){
+            nums.splice(i, 1)
+        }
+     }
+    return nums.length;
+};
+
+removeElement(nums);
