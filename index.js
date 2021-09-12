@@ -42,5 +42,30 @@ var threeSum = function(nums){
   return triplets;
 };
 
-threeSum(numeros);
+// 20. VALID PARENTHESES
+const closy = '()';
+const noClosy = '(]';
+
+let isValid = function(s){
+    let stack =[];
+
+    for( i=0; i<s.length; i++){
+        let char = stack[stack.length -1]
+        if(s[i] === '('|| s[i]=== '{' || s[i] ==='['){
+        stack.push(s[i]);
+
+        } else if ( 
+            (char === '(' && s[i] === ')') ||
+            (char === '{' && s[i] === '}') ||
+            (char === '[' && s[i] === ']')
+            ){
+            stack.pop()
+            console.log(char);
+
+    } else return false
+    }
+    return stack.length ? false : true;
+};
+
+isValid(noClosy);
 
