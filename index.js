@@ -87,3 +87,15 @@ var mergeTwoLists = function(l1, l2) {
 
 mergeTwoLists(l1,l2)
 
+// 26. REMOVE DUPLICATES FROM SORTED ARRAY
+var removeDuplicates = function(nums) {
+    let newNum = 1;
+
+    for(let i = 0; i<nums.length-1; i ++){
+        if(nums[i] != nums[i+1]){
+            nums[newNum++] = nums[i+1];
+        }
+    }
+return newNum;
+
+};
