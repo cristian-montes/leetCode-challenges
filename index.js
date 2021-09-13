@@ -103,7 +103,7 @@ return newNum;
 //27. REMOVE ELEMENT 
 nums = [3,2,2,3], val = 3   
 var removeElement = function(nums, val) {
-    for(let i =nums.length-1; i >= 0; i--){   
+    for(let i = nums.length-1; i >= 0; i--){   
         if( nums[i] === val){
             nums.splice(i, 1)
         }
@@ -112,3 +112,24 @@ var removeElement = function(nums, val) {
 };
 
 removeElement(nums);
+
+// 28. REMOVE strStr()
+// haystack = "hello", needle = "ll";
+// haystack = "abc", needle = "c"
+haystack = "", needle = "a"
+
+var strStr = function(haystack, needle) {
+    if(needle === haystack) return 0;
+
+    for(let i=0; i<haystack.length; i++){
+        if(needle === haystack.substring(i, i + needle.length)){
+            console.log(i)
+            return i;
+        }
+    }
+    console.log(-1)
+    return -1
+};
+
+strStr(haystack, needle)
+
