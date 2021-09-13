@@ -131,5 +131,20 @@ var strStr = function(haystack, needle) {
     return -1
 };
 
-strStr(haystack, needle)
+// strStr(haystack, needle)
 
+// 35. SEARCH INSERT POSITION
+nums = [1,3,5,6], target = 5
+
+var searchInsert = function(nums, target) {
+    for(let i = 0; i<nums.length; i++){
+        if(target <= nums[i]){
+            return i;
+        }
+    }
+    return nums.length
+};
+
+// searchInsert(nums, target)
+
+// 
