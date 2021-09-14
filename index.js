@@ -150,7 +150,6 @@ var searchInsert = function(nums, target) {
 nums = [-2,1,-3,4,-1,2,1,-5,4]
 var maxSubArray = function(nums) {
     if(nums.length === 0) return 0;
-    
     let max = nums[0]
     for(let i = 0; i < nums.length; i++){
       if(nums[i-1] > 0){
@@ -161,4 +160,15 @@ var maxSubArray = function(nums) {
     return max;
 };
 
-maxSubArray(nums)
+// maxSubArray(nums)
+
+// 58. Length of Last Word
+s = "luffy is still joyboy"
+
+var lengthOfLastWord = function(s) {
+ const words = s.trim().split(' ');
+ const lastWord = words.pop() || '';
+return lastWord.length;
+
+};
+lengthOfLastWord(s);
