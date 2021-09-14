@@ -153,10 +153,8 @@ var maxSubArray = function(nums) {
     
     let max = nums[0]
     for(let i = 0; i < nums.length; i++){
-        console.log(nums[i-1])
-
       if(nums[i-1] > 0){
-          nums[i] += nums[i-1];
+          nums[i] += nums[i-1];   // nums[i-1] checks previous index of i;
       }
       max = Math.max(nums[i], max)
     }
