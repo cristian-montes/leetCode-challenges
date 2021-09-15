@@ -168,7 +168,49 @@ s = "luffy is still joyboy"
 var lengthOfLastWord = function(s) {
  const words = s.trim().split(' ');
  const lastWord = words.pop() || '';
-return lastWord.length;
+ return lastWord.length;
 
 };
-lengthOfLastWord(s);
+// lengthOfLastWord(s);
+
+//66.PLUS ONE
+var plusOne = function(digits) {
+    for(let i = digits.length-1; i >=0; i--){
+        if(digits[i]<9){
+            digits[i] = digits[i]+1;
+            return digits;
+        } else {
+            digits[i] = 0;
+        }
+    }
+    digits.unshift(1);
+    return digits;
+};
+
+// O(N) time complexity
+// Space Complexity O(1)
+
+//GOOGLE INTERVIEW QUESTION
+//--Collection of numbers, find the matching pair that equal the sum given
+
+
+function hasPairWithSum(arr, sum){
+    const myObj = new Set();
+
+    for(let i = 0; i <arr.length; i++){
+        if(myObj.has(arr[i])){
+            console.log(true)
+            return true;
+        }
+        myObj.add(sum - arr[i]);
+        console.log(myObj);   //subtracting the arr[i] val. from the sum val. and stored in myObj to compare the myObj keys value to the arr index value. and when they match we can surely assume that there are to values that can be added together.
+    }
+    console.log(false)
+    return false;
+}
+
+const arr1 = [1,2,3,9]; 
+const sum1 =8;
+const arr2 = [1,2,8,6]; 
+
+hasPairWithSum(arr2, sum1)
