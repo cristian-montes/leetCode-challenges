@@ -190,6 +190,8 @@ var plusOne = function(digits) {
 // O(N) time complexity
 // Space Complexity O(1)
 
+
+//==*** -- - --- - - - - - -  ==***  - - -- - - - - - - - - - - - - - -- - - - - - --- - - - -
 //GOOGLE INTERVIEW QUESTION
 //--Collection of numbers, find the matching pair that equal the sum given
 
@@ -213,4 +215,48 @@ const arr1 = [1,2,3,9];
 const sum1 =8;
 const arr2 = [1,2,8,6]; 
 
-hasPairWithSum(arr2, sum1)
+// hasPairWithSum(arr2, sum1)
+
+
+// 67. Add Binary
+var addBinary = function(a, b) {
+    let carry = 0, result = "";
+   
+     let i = a.length - 1, j = b.length - 1;
+   
+     while(i >= 0 || j >= 0) {
+       let num1 = i < 0 ? 0 : a[i] | 0;
+       let num2 = j < 0 ? 0 : b[j] | 0;
+       carry = carry + num1 + num2;
+       result = carry % 2 + result; 
+       carry = carry / 2 | 0;
+       i--;
+       j--;
+     }
+   
+     return carry ? carry + result : result;
+   }
+
+// const a = "1010";
+// const b = "1011";
+// addBinary(a,b);
+
+
+// 69. Sqrt(x)
+var mySqrt = function(x) {
+    if(x<2) return x;
+    let left = 1;
+    let right = x;
+
+    while(left < right){
+        const mid = Math.floor((left + right)/2);
+        if(mid * mid === x ) return mid;
+        else if(mid * mid > x) right = mid
+        else left = mid+1;
+    }
+  console.log(right);
+  return left-1;
+};
+
+const x = 4;
+mySqrt(x);
