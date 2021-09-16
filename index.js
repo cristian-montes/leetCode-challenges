@@ -261,5 +261,23 @@ var mySqrt = function(x) {
     };
 }
 
-const x = 4;
-mySqrt(x);
+// const x = 4;
+// mySqrt(x);
+
+// 70. CLIMBING STAIRS
+var climbStairs = function(n) {
+    const obj = {
+        "0":1,
+        "1":1
+    };
+
+    if (n <=1) return 1;
+    for(let i =2; i <= n; i++){
+        obj[i] = obj[i-1] + obj[i-2];     
+    }
+    return obj[n];
+};
+
+
+const n = 3;
+climbStairs(n)
