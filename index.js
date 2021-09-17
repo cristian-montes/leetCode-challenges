@@ -309,5 +309,28 @@ var merge = function(nums1, m, nums2, n) {
     return nums1;
 };
 
-nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
-merge(nums1, m, nums2, n )
+// nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+// merge(nums1, m, nums2, n )
+
+
+// 7. REVERSE INTEGER
+var reverse = function(x) {
+    let digit, result = 0
+while(x){
+    digit = x % 10;
+   
+    result = (result * 10) + digit;
+    console.log(result);
+    x = x/10 | 0;
+}
+if( result < Math.pow(-2,31) ||result > Math.pow(2, 31) ){
+    return 0;
+}
+return result;
+};
+
+Input: x = 123
+
+Output: 321
+
+reverse(x)
