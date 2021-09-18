@@ -344,8 +344,25 @@ var twoSum = function(nums, target) {
     }
   
 }
+// nums = [2,7,11,15], target = 9;
+// twoSum(nums, target);
 
+// 125 VALID PALINDROME
+var isPalindrome = function(s) {
+    const cleanS = s.replace(/[^a-zA-Z0-9]/g,"").toLowerCase();
 
-nums = [2,7,11,15], target = 9;
+    let left = 0;
+    let right = cleanS.length-1;
 
-twoSum(nums, target);
+    while( left < right){
+        if(cleanS[left] != cleanS[right]) return false;
+
+        left ++;
+        right --;
+    }
+    console.log(true)
+    return true;
+};
+
+Input: s = "A man, a plan, a canal: Panama"
+isPalindrome(s);
