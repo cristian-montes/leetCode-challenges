@@ -116,7 +116,7 @@ removeElement(nums);
 // 28. REMOVE strStr()
 // haystack = "hello", needle = "ll";
 // haystack = "abc", needle = "c"
-haystack = "", needle = "a"
+// haystack = "", needle = "a"
 
 var strStr = function(haystack, needle) {
     if(needle === haystack) return 0;
@@ -130,7 +130,6 @@ var strStr = function(haystack, needle) {
     console.log(-1)
     return -1
 };
-
 // strStr(haystack, needle)
 
 // 35. SEARCH INSERT POSITION
@@ -159,7 +158,6 @@ var maxSubArray = function(nums) {
     }
     return max;
 };
-
 // maxSubArray(nums)
 
 // 58. Length of Last Word
@@ -186,7 +184,6 @@ var plusOne = function(digits) {
     digits.unshift(1);
     return digits;
 };
-
 // O(N) time complexity
 // Space Complexity O(1)
 
@@ -328,9 +325,27 @@ if( result < Math.pow(-2,31) ||result > Math.pow(2, 31) ){
 }
 return result;
 };
+// Input: x = 123
+// Output: 321
+// reverse(x)
 
-Input: x = 123
 
-Output: 321
 
-reverse(x)
+// 1. TWO SUM ARRAY
+var twoSum = function(nums, target) {
+    let obj={}
+    for(let i=0; i<nums.length; i++){
+        let comp = target-nums[i];
+        if(obj[comp] != undefined){
+           
+            return [obj[comp] , i]
+        } 
+        obj[nums[i]] = i
+    }
+  
+}
+
+
+nums = [2,7,11,15], target = 9;
+
+twoSum(nums, target);
