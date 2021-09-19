@@ -364,5 +364,24 @@ var isPalindrome = function(s) {
     return true;
 };
 
-Input: s = "A man, a plan, a canal: Panama"
-isPalindrome(s);
+// s = "A man, a plan, a canal: Panama"
+// isPalindrome(s);
+
+var twoSum = function(numbers, target) {
+    let left = 0;
+    let right = numbers.length-1;
+
+    while(left !== right){
+         numbers[right];
+        if(numbers[left] + numbers[right] > target){
+            right --;
+        } else if(numbers[left] + numbers[right] > target){
+            left ++
+        } else {
+            return [numbers[left+1], numbers[right+1]]
+        }
+       
+    }
+}
+// numbers = [2,3,4], target = 6
+// twoSum(numbers, target)
