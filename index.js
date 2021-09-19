@@ -385,3 +385,21 @@ var twoSum = function(numbers, target) {
 }
 // numbers = [2,3,4], target = 6
 // twoSum(numbers, target)
+
+var singleNumber = function(nums) {
+    let obj ={}
+    for(let i =0; i< nums.length; i++){
+        if(!obj[nums[i]]){
+            obj[nums[i]]= 1;
+        } else{
+            obj[nums[i]]++;
+        } 
+    }
+    for(let key in obj){
+        if(obj[key] === 1) return key;
+    }
+};
+
+nums = [4,1,2,1,2]
+
+singleNumber(nums);
