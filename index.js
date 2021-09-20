@@ -386,6 +386,7 @@ var twoSum = function(numbers, target) {
 // numbers = [2,3,4], target = 6
 // twoSum(numbers, target)
 
+// SINGLE NUMBER
 var singleNumber = function(nums) {
     let obj ={}
     for(let i =0; i< nums.length; i++){
@@ -400,6 +401,33 @@ var singleNumber = function(nums) {
     }
 };
 
-nums = [4,1,2,1,2]
+// nums = [4,1,2,1,2]
+// singleNumber(nums);
 
-singleNumber(nums);
+
+
+//389 FIND THE DIFFERENCE
+var findTheDifference = function(s, t) {
+
+  let obj = {}
+
+    for(let i = 0; i< s.length; i++){
+       if(!obj[s[i]]){
+        obj[s[i]] = 1;
+       } else {
+        obj[s[i]]++;
+       }
+    }
+       for(let i=0; i< t.length; i++){
+           if(!obj[t[i]]){
+               console.log(t[i]);
+               return t[i];
+           } else{
+               obj[t[i]] --;
+           }
+       }
+};
+
+s = "abcd", t = "abcde"
+
+findTheDifference(s, t);
