@@ -446,7 +446,7 @@ var guessNumber = function(n) {
 };
 
 
-//387 FIRT UNIQUE CHARACTER IN A STRING
+//387 FIRT UNIQUE CHARACTER IN A STRING (I got this one all by myself!!!!!1)
 var firstUniqChar = function(s) {
     let dirc = {};
 
@@ -468,3 +468,28 @@ var firstUniqChar = function(s) {
 
 // s = "aabb"
 // firstUniqChar(s)
+
+//383 RANSOME NOTE
+var canConstruct = function (ransomNote, magazine) {
+    const map = new Map();
+  
+    for (let i = 0; i < magazine.length; i++) {
+      if (map.has(magazine[i])) {
+        map.set(magazine[i], map.get(magazine[i]) + 1)
+      } else {
+        map.set(magazine[i], 1)
+      }
+    }
+  
+    for (let i = 0; i < ransomNote.length; i++) {
+      if (!map.has(ransomNote[i]) || map.get(ransomNote[i]) === 0) {
+        return false;
+      }
+      map.set(ransomNote[i], map.get(ransomNote[i]) - 1)
+    }
+  
+    return true;
+  };
+
+ransomNote = "aa", magazine = "ab"
+canConstruct(ransomNote, magazine)
