@@ -437,10 +437,34 @@ var guessNumber = function(n) {
 
     while(left < right){
         const mid = left+Math.floor((right-left)/2);
-        const current = guess(mid);
+        const current = guess(mid);      // THIS "GUESS"DOES NOT MAKE SENSE! LOOK UP OTHER SOLUTION OR COME UP SOMETHING CLOSER.
         if(current === 0 ) return mid;
         if(current === -1) right = mid;
         else left = mid+1;
     }
     return left
 };
+
+
+//387 FIRT UNIQUE CHARACTER IN A STRING
+var firstUniqChar = function(s) {
+    let dirc = {};
+
+    for( let i=0; i< s.length; i++){
+        if(!dirc[s[i]]){
+            dirc[s[i]] = 1;
+        } else{
+            dirc[s[i]] ++;
+        }
+    }
+
+    for( let i=0; i< s.length; i++){
+        if( dirc[s[i]] === 1){
+            return i;
+        }
+    }
+    return -1
+};
+
+// s = "aabb"
+// firstUniqChar(s)
