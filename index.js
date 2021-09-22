@@ -494,15 +494,37 @@ var canConstruct = function (ransomNote, magazine) {
 ransomNote = "aa", magazine = "ab"
 // canConstruct(ransomNote, magazine)
 
+
+//367 VALID PERFECT SQUARE --- got this all by myself
 var isPerfectSquare = function(num) {
     if(Math.sign(num) === -1) return false;
 
    const perfectNum =  Math.sqrt(num)%1;
-   if(perfectNum%1 !== 0){
+   if(perfectNum !== 0){
        return false;
    }
    return true
 };
+// num = 16
+// isPerfectSquare(num)
 
-num = 11
-isPerfectSquare(num)
+
+//392 IS SUBSEQUENCE
+var isSubsequence = function(s, t) {
+   let i = 0;
+   let j = 0;
+
+   while(i < s.length){
+       if(j===t.length){
+           return false
+       }
+       if(s[i] === t[j]){
+           i++
+       }
+       j++
+   }
+   return true
+};
+
+s = "ac", t = "ahbgdc"
+isSubsequence(s, t)
