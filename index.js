@@ -492,4 +492,17 @@ var canConstruct = function (ransomNote, magazine) {
   };
 
 ransomNote = "aa", magazine = "ab"
-canConstruct(ransomNote, magazine)
+// canConstruct(ransomNote, magazine)
+
+var isPerfectSquare = function(num) {
+    if(Math.sign(num) === -1) return false;
+
+   const perfectNum =  Math.sqrt(num)%1;
+   if(perfectNum%1 !== 0){
+       return false;
+   }
+   return true
+};
+
+num = 11
+isPerfectSquare(num)
