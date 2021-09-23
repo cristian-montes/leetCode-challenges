@@ -535,5 +535,14 @@ var reverseString = function(s) {
     return s.reverse();
 };
 
-s = ["H","a","n","n","a","h"]
-reverseString(s)
+// s = ["H","a","n","n","a","h"]
+// reverseString(s)
+
+// 342. POWER OF FOUR  -- - - - - - do not understand this solution... look more into it.
+var isPowerOfFour = function(n) {
+ console.log( Math.log(n)/Math.log(4)%1 === 0)
+    return Math.log(n)/Math.log(4)%1 === 0
+    };
+
+n =16
+isPowerOfFour(n);
