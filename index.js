@@ -526,5 +526,14 @@ var isSubsequence = function(s, t) {
    return true
 };
 
-s = "ac", t = "ahbgdc"
-isSubsequence(s, t)
+// s = "ac", t = "ahbgdc"
+// isSubsequence(s, t)
+
+//344 REVERSE STRING
+var reverseString = function(s) {
+    console.log(s.reverse())
+    return s.reverse();
+};
+
+s = ["H","a","n","n","a","h"]
+reverseString(s)
