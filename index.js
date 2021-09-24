@@ -544,5 +544,22 @@ var isPowerOfFour = function(n) {
     return Math.log(n)/Math.log(4)%1 === 0
     };
 
-n =16
-isPowerOfFour(n);
+// n =16
+// isPowerOfFour(n);
+
+//283. Move Zeros
+var moveZeroes = function(nums) {
+    let placeNonZeros = 0;
+
+    for(let i =0; i<nums.length; i++){
+        if(nums[i] !== 0){
+            nums[placeNonZeros] = nums[i];
+            placeNonZeros++;
+        }
+    }
+
+    for(let i = placeNonZeros; i<nums.length; i++ ){
+        nums[i] = 0;
+    }
+    return nums;
+};
