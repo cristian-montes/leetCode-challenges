@@ -563,3 +563,23 @@ var moveZeroes = function(nums) {
     }
     return nums;
 };
+
+
+// 217. CONTAINS DUPLICATE
+var containsDuplicate = function(nums) {
+    let obj={};
+
+    for(let i=0; i<nums.length; i++){
+        if(!obj[nums[i]]){
+            obj[nums[i]] = 1;
+        } else  {
+            console.log(true)
+            return true;
+        } 
+    }
+   console.log(false);
+   return false;
+    
+};
+nums = [1,2,3,4]
+containsDuplicate(nums)
