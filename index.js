@@ -581,5 +581,29 @@ var containsDuplicate = function(nums) {
    return false;
     
 };
-nums = [1,2,3,4]
-containsDuplicate(nums)
+// nums = [1,2,3,4]
+// containsDuplicate(nums)
+
+var summaryRanges = function(nums) {
+    let start =null;
+    const result = [];
+    for(let i =0; i< nums.length; i++){
+        if(start === null){
+            start = nums[i]
+        }
+        if(nums[i] === nums[i+1] -1 ){
+            continue
+        }
+        if(nums[i] === start){
+            result.push(nums[i].toString())
+            start = null
+        } else {
+            result.push(`${start}->${nums[i]}`)
+            start = null
+        }
+    }
+    
+    return result;
+}
+nums = [0,2,3,4,6,8,9]
+summaryRanges(nums)
