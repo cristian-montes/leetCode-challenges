@@ -584,6 +584,8 @@ var containsDuplicate = function(nums) {
 // nums = [1,2,3,4]
 // containsDuplicate(nums)
 
+
+//228. SUMMARY OF CHANGES   ----****--- look more into this one to understand the solution and the problem better
 var summaryRanges = function(nums) {
     let start =null;
     const result = [];
@@ -605,5 +607,30 @@ var summaryRanges = function(nums) {
     
     return result;
 }
-nums = [0,2,3,4,6,8,9]
-summaryRanges(nums)
+// nums = [0,2,3,4,6,8,9]
+// summaryRanges(nums)
+
+//412. FIZZ BUZZ
+var fizzBuzz = function(n) {
+    let fizzyArr = []
+
+    for(let i = 1;  i<=n; i++){
+        if( i%3 === 0 && i%5 === 0){
+            // n[i] = 'FizzBuzz'
+            fizzyArr.push('FizzBuzz')
+        } else if(i%5 ===0){
+            // n[i] = 'Buzz'
+            fizzyArr.push('Buzz')
+        } else if (i%3 === 0 ){
+            // n[i] = 'Fizz'
+            fizzyArr.push('Fizz')
+        } else{
+            fizzyArr.push(i.toString())
+        }
+    }
+console.log(fizzyArr);
+return fizzyArr
+};
+
+n = 30;
+fizzBuzz(n);
