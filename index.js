@@ -632,5 +632,21 @@ console.log(fizzyArr);
 return fizzyArr
 };
 
-n = 30;
-fizzBuzz(n);
+// n = 30;
+// fizzBuzz(n);
+
+//231. POWER OF TWO
+
+var isPowerOfTwo = function(n) {
+    let i = 1;
+
+    while(i < n){
+        console.log(i)
+        i *= 2;
+    }
+    console.log(i)
+    return i === n;
+}
+
+n=13;
+isPowerOfTwo(n);
