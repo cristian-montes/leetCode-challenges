@@ -636,17 +636,67 @@ return fizzyArr
 // fizzBuzz(n);
 
 //231. POWER OF TWO
-
 var isPowerOfTwo = function(n) {
     let i = 1;
 
     while(i < n){
-        console.log(i)
         i *= 2;
     }
-    console.log(i)
     return i === n;
 }
+//TIME COMPLEXITY = O(log N) if input doubles, while loop runs one more time
+// SPACE COMPLEXITY O(1);
+// n=16;
+// isPowerOfTwo(n);\
 
-n=13;
-isPowerOfTwo(n);
+//350. INTERSECTION OF TWO ARRAYS II
+var intersect = function(nums1, nums2) {
+    let res = [];
+
+    for(let i=0; i<nums2.length; i++){
+        if(nums1.includes(nums2[i])){
+            res.push(nums2[i]);
+            nums1.splice(nums1.indexOf(nums2[i]), 1)
+        }
+    }
+    return res;
+}
+
+// nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+// intersect(nums1, nums2)
+
+//290. WORD PATTERN
+
+var wordPattern = function(pattern, s) {
+
+    let map1 =  new Map();
+    let map2 =  new Map();
+
+    const res = s.split(' ');
+    if(pattern.length !== res.length) return false;
+
+    for(let i =0, l = pattern.length; i <= l-1; ++i ){
+        if(!map1.has(res[i])){
+            map1.set(res[i], pattern[i]);
+        } else {
+            if(map1.get(res[i]) !== pattern[i]){
+                return false;
+            }
+        }
+
+        if(!map2.has(pattern[i])){
+            map2.set(pattern[i], res[i])
+        } else {
+            if(map2.get(pattern[i]) !== res[i]){
+                return false;
+            }
+        }
+    }
+return true;
+    
+};
+
+pattern = "abba", s = "dog cat cat dog";
+pattern = "abba", s = "dog cat cat fish";
+
+wordPattern(pattern, s)
