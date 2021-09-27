@@ -680,6 +680,7 @@ var wordPattern = function(pattern, s) {
             map1.set(res[i], pattern[i]);
         } else {
             if(map1.get(res[i]) !== pattern[i]){
+                console.log('false 11111')
                 return false;
             }
         }
@@ -688,15 +689,41 @@ var wordPattern = function(pattern, s) {
             map2.set(pattern[i], res[i])
         } else {
             if(map2.get(pattern[i]) !== res[i]){
+                console.log('false 222')
+
                 return false;
             }
         }
     }
-return true;
+    console.log('True 22322123')
+
+    return true;
     
 };
 
-pattern = "abba", s = "dog cat cat dog";
-pattern = "abba", s = "dog cat cat fish";
+// pattern = "abba", s = "dog cat cat dog";
+// pattern = "abba", s = "dog cat cat fish";
+// pattern = "aaaa", s = "dog cat cat dog"
+// pattern = "abba", s = "dog dog dog dog"
 
-wordPattern(pattern, s)
+// wordPattern(pattern, s)
+
+var squareIsWhite = function(coordinates) {
+    let t = coordinates[0];
+    let s = coordinates[1];
+
+    if(t === 'a'||t === 'c'||t === 'e'||t === 'g'){ //takes care of the letters starting in black and since all of the black squares are in odd numbers the reminder will always be 1.
+        if((s - '0')%2 === 1) return false;
+        else return true;
+    } else {
+        if((s - '0')%2 === 0) return false; //takes care of the letters starting in white and since all of the black squares are in even numbers the reminder will always be 0;
+       
+        else return true;   
+     }
+    
+
+
+};
+
+// coordinates = "a1"
+// squareIsWhite(coordinates);
