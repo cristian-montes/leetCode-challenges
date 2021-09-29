@@ -389,6 +389,22 @@ var twoSum = function(numbers, target) {
 // twoSum(numbers, target)
 
 
+
+//168 EXCEL COlUM TITLE
+var convertToTitle = function(n) {
+    var result = '';
+    while (n) {
+        var code = String.fromCharCode( (n - 1) % 26 + 'A'.charCodeAt() );
+        n = Math.floor((n - 1) / 26);
+        result = code + result;
+    }
+    console.log(result);
+    return result;
+};
+columnNumber = 333
+convertToTitle(columnNumber)
+
+
 // SINGLE NUMBER
 var singleNumber = function(nums) {
     let obj ={}
