@@ -367,6 +367,8 @@ var isPalindrome = function(s) {
 // s = "A man, a plan, a canal: Panama"
 // isPalindrome(s);
 
+
+//167 TWO SUM II - INPUT ARRAY IS SORTED
 var twoSum = function(numbers, target) {
     let left = 0;
     let right = numbers.length-1;
@@ -375,7 +377,7 @@ var twoSum = function(numbers, target) {
          numbers[right];
         if(numbers[left] + numbers[right] > target){
             right --;
-        } else if(numbers[left] + numbers[right] > target){
+        } else if(numbers[left] + numbers[right] < target){
             left ++
         } else {
             return [numbers[left+1], numbers[right+1]]
@@ -385,6 +387,7 @@ var twoSum = function(numbers, target) {
 }
 // numbers = [2,3,4], target = 6
 // twoSum(numbers, target)
+
 
 // SINGLE NUMBER
 var singleNumber = function(nums) {
@@ -713,17 +716,33 @@ var squareIsWhite = function(coordinates) {
     let s = coordinates[1];
 
     if(t === 'a'||t === 'c'||t === 'e'||t === 'g'){ //takes care of the letters starting in black and since all of the black squares are in odd numbers the reminder will always be 1.
-        if((s - '0')%2 === 1) return false;
+        if(s%2 === 1) return false;
         else return true;
     } else {
-        if((s - '0')%2 === 0) return false; //takes care of the letters starting in white and since all of the black squares are in even numbers the reminder will always be 0;
+        if(s%2 === 0) return false; //takes care of the letters starting in white and since all of the black squares are in even numbers the reminder will always be 0;
        
         else return true;   
      }
-    
-
 
 };
 
 // coordinates = "a1"
 // squareIsWhite(coordinates);
+
+
+// 409 LONGEST PALINDRONME  ------*****----**** solution not working
+var longestPalindrome = function(s) {
+    let ll = 0, rr=0;
+
+    for(let i = 0; i < s.length; i++){
+        for(let j  of [i, i+1]){
+            for (l = i, r=j; s[l] && s[l] === s[r]; l--, r++)
+            [ll, rr] = (r-l+1)>(rr-ll+1) ? [l, r] : [ll, rr];
+        }
+    }
+  
+    return s.substring(ll, rr+1);
+};
+
+// s = "abccccdd"
+// longestPalindrome(s)
