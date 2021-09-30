@@ -393,16 +393,16 @@ var twoSum = function(numbers, target) {
 //168 EXCEL COlUM TITLE
 var convertToTitle = function(n) {
     var result = '';
-    while (n) {
+    while (n) {                                //9   +   65
         var code = String.fromCharCode( (n - 1) % 26 + 'A'.charCodeAt() );
         n = Math.floor((n - 1) / 26);
         result = code + result;
     }
-    console.log(result);
+
     return result;
 };
-columnNumber = 333
-convertToTitle(columnNumber)
+// columnNumber = 1
+// convertToTitle(columnNumber)
 
 
 // SINGLE NUMBER
@@ -762,3 +762,25 @@ var longestPalindrome = function(s) {
 
 // s = "abccccdd"
 // longestPalindrome(s)
+
+
+//202 HAPPY NUMBER
+var isHappy = function(n) {
+    if(n<10){
+        if(n===1 || n===7){return true}
+        return false
+    }
+    let sum = 0
+    while(n>0){
+        let value = n % 10
+        sum += value**2
+        n -= value
+        n /= 10
+    }
+    if(sum ===1){return true}
+    return isHappy(sum)
+};
+
+
+ n = 19
+ isHappy(n);
