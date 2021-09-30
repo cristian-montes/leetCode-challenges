@@ -780,7 +780,23 @@ var isHappy = function(n) {
     if(sum ===1){return true}
     return isHappy(sum)
 };
+//  n = 19
+//  isHappy(n);
 
+//169 MAJORITY ELEMENT
+var majorityElement = function(nums) {
+    let obj ={};
 
- n = 19
- isHappy(n);
+    for( const num of nums){
+        obj[num] = obj[num] +1 || 1;
+    }
+
+    for(const keys in obj){
+        if(obj[keys] > Math.floor(nums.length/2)){
+            return keys;
+        }
+    }
+};
+
+// nums = [3,2,3]
+// majorityElement(nums)
