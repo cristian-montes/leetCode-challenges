@@ -797,6 +797,31 @@ var majorityElement = function(nums) {
         }
     }
 };
-
 // nums = [3,2,3]
 // majorityElement(nums)
+
+
+// 141. LINKED LIST CYCLE
+
+//EXPLANATION: the linked list (ll) is made up nodes and each ndoe points to the next code, execpt for the last Node, which has a null for next(typically). However in this case we are checking for the posibility that list contains a loop or in simplest terms: the final Node, instead of having a null value, has a reference to one of the nodes in the list which came before it. OR HAS A VALUE INSTEAD OF NULL..
+// SOLUTION EXPLAINED: have to pointer moving at different speed. Slow moving forward 1 node at a time and Fast moving 2 nodes at time. if there is a loop the two will meet, else the  either of the two will become null.
+var hasCycle = function(head) {
+    let fast = head;
+    let slow = head;
+
+    while(fast !== null && fast.next !== null){
+        slow = slow.next;
+        fast = fast.next.next;
+
+        if(slow === fast) return true;
+    }
+
+    return false;
+};
+
+// head = [3,2,0,-4];
+// hasCycle(head)
+
+
+
+// 206. REVERSE LINKED LIST
