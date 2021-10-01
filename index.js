@@ -825,3 +825,24 @@ var hasCycle = function(head) {
 
 
 // 206. REVERSE LINKED LIST
+var reverseList = function(head) {
+   let node = head;
+   let prev = null;
+ 
+   while(node){
+
+       // save next before we overwrite node.next!
+      let tmp = node.next;
+
+      // reverse pointer
+       node.next = prev;
+       
+       // step forward in the list
+       prev = node;
+       node = tmp;
+   }
+   return prev;
+};
+
+head = [1,2,3,4,5]
+reverseList(head);
