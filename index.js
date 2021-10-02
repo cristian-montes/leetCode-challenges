@@ -844,5 +844,27 @@ var reverseList = function(head) {
    return prev;
 };
 
-head = [1,2,3,4,5]
-reverseList(head);
+// head = [1,2,3,4,5]
+// reverseList(head);
+
+
+// 160. INTERSECTION OF TWO LINKED LIST
+//EXPLANTION:Concatenate the 2 linked listed in opposite orders, this way the ends of the two original lists will align on the seond half of each merged list. Then check if at some point the two merged list are point to the same node. Or if they dont return null and use it as your exit contion for the while loop. String headB onto a and viceversa. 
+
+var getIntersectionNode = function(headA, headB) {
+    let a = headA, b = headB
+
+    while(a !== b){
+        a = !a ? headB : a.next;
+        b = !b ?  headA : b.next;
+
+    }
+
+    return a
+
+};
+
+// headA = [4,1,8,4,5], headB = [5,6,1,8,4,5]
+// getIntersectionNode(headA, headB);
+
+
