@@ -868,3 +868,21 @@ var getIntersectionNode = function(headA, headB) {
 // getIntersectionNode(headA, headB);
 
 
+//203. REMOVE LINKED LIST ELEMENTS
+var removeElements = function(head, val) {
+    while(head !== null && head.val ===  val){
+        head = head.next;
+    }
+
+    let current_node = head;
+    while(current_node !== null && current_node.next !== null){
+        if (current_node.next.val ===  val){
+            current_node.next = current_node.next.next;
+        } else {
+            current_node = current_node.next
+        }
+    }
+    return head;
+};
+
+head = [1,2,6,3,4,5,6], val = 6
