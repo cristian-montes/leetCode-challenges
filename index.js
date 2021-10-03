@@ -884,5 +884,47 @@ var removeElements = function(head, val) {
     }
     return head;
 };
+// head = [1,2,6,3,4,5,6], val = 6
 
-head = [1,2,6,3,4,5,6], val = 6
+//155. Min Stack  *********************************************************************************
+
+var MinStack = function() {
+    this.min = [];
+    this.stack = [];
+};
+
+/** 
+ * @param {number} val
+ * @return {void}
+ */
+MinStack.prototype.push = function(val) {
+    if(val <= this.min[this.min.length -1] || this.min.length === 0){
+        this.min.push(val);
+    }
+    return this.stack.push(val);
+};
+
+/**
+ * @return {void}
+ */
+MinStack.prototype.pop = function() {
+    const deleteValue = this.stack.pop();
+    if(deleteValue === this.getMin()) this.min.pop();
+    return deleteValue;
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.top = function() {
+    return this.stack[this.stack.length -1]
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.getMin = function() {
+    return this.min[this.min.length-1]
+    
+};
+// *********************************************************************************
