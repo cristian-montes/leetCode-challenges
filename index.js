@@ -947,5 +947,30 @@ var majorityElement = function(nums) {
     }
     return nums[maj];
 };
-nums = [3,2,3]
-majorityElement(nums)
+// nums = [3,2,3]
+// majorityElement(nums)
+
+
+
+
+
+
+
+
+
+
+//104. MAXIMUM DEPTH OF BINARY TREE
+//1st, check if there is treee by checking the root. Then travel to the end of all branches in the tree, therby end up with 0 for depth. Check left and right side nodes. As call stack updates to the first function call, and gets closer to the head node, depth increments by 1.Math max is to update the highest depth from side of the node.
+var maxDepth = function(root) {
+   if(root === null) return 0;
+
+   let leftMax = maxDepth(root.left);
+   let rightMax = maxDepth(root.right);
+
+   let depth = Math.max(leftMax, rightMax);
+
+   return depth+1;
+};
+
+// root = [1,null,2]
+// maxDepth(root);
