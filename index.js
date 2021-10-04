@@ -953,10 +953,29 @@ var majorityElement = function(nums) {
 
 
 
+//94. BINARY TREE INORDER TRAVERSAL
+var inorderTraversal = function(root) {
+    let res = [];
+    helper(root, res);
+    return res;
+  }
+  
+  function helper(root, res) {
+    if (root) {
+      if (root.left) {
+        helper(root.left, res);
+      }
+  
+      res.push(root.val);
+  
+      if (root.right) {
+        helper(root.right, res);
+      }
+    }
+  }
 
-
-
-
+root = [1,null,2,3]
+inorderTraversal(root);
 
 
 //104. MAXIMUM DEPTH OF BINARY TREE
