@@ -993,3 +993,19 @@ var maxDepth = function(root) {
 
 // root = [1,null,2]
 // maxDepth(root);
+
+//171. EXCEL SHEET COLUM NUMBER
+var titleToNumber = function(columnTitle) {
+    let lel = columnTitle.length-1;
+    let num =0;
+       
+    for(let i = 0; i<=lel; i++){
+        const p = Math.pow(26, i);
+        const n = columnTitle.charCodeAt(lel - i) - 64;
+        num += p*n;
+    }
+    return num;
+};
+
+columnTitle = "FXSHRXW"
+titleToNumber(columnTitle);
