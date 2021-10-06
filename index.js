@@ -1062,11 +1062,19 @@ var preorderTraversal = function(root) {
 // preorderTraversal(root);
 
 var isSameTree = function(p, q) {
-    let queue = [[p,q]];
-
-    while(queue.length){
-        let [x, y] = queue.shift();
-        
-        
+    let stack = [[p,q]];
+    
+    while (stack.length){
+        let [x,y] = stack.shift();
+		
+        // if both leaves
+        if (x==null && y==null) continue; 
+        if(!x || !y) return false;
+        if(x.val == y.val){
+            stack.push([x.left, y.left]);
+            stack.push([x.right, y.right]);
+        }
+        else return false;
     }
-};
+    return true;
+}
