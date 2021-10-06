@@ -1024,5 +1024,49 @@ var minDepth = function(root) {
     //return the depth
     return Math.min( minDepth(root.left), minDepth(root.right) ) + 1
 };
-root = [3,9,20,null,null,15,7]
-minDepth(root);
+// root = [3,9,20,null,null,15,7]
+// minDepth(root);
+
+// 144. BINARY TREE PREODER TRAVERSAL
+var preorderTraversal = function(root) {
+    /**
+     * Algorithm:
+     * 1. Create an empty stack [];
+     * 2. Do while stack is not empty:
+     * 2.1. Pop an item from stack and add it to the 'result' array.
+     * 2.2. Push 'right child' of popped item to stack.
+     * 2.3. Push 'left child' of popped item to stack.
+    */
+    if (root == null) {
+      return [];
+    }
+ 
+    const stack = [];
+    const result = [];
+ 
+    stack.push(root);
+ 
+    while(stack.length > 0) {
+      let current = stack.pop();
+      console.log(current);
+      result.push(current.val);
+ 
+      if (current.right) stack.push(current.right);
+      if (current.left) stack.push(current.left);
+    }
+ 
+    return result;
+ };
+
+// root = [1,null,2,3];
+// preorderTraversal(root);
+
+var isSameTree = function(p, q) {
+    let queue = [[p,q]];
+
+    while(queue.length){
+        let [x, y] = queue.shift();
+        
+        
+    }
+};
