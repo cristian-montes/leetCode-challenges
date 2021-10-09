@@ -1092,3 +1092,26 @@ var hasPathSum = function(root, targetSum) {
     }
 
 };
+
+
+//101 Symmetric Tree
+
+var isSymmetric = function(root) {
+    var isMirror = function(p, q) {
+        if(p===null && q===null) return true;
+    
+		/*Checks recursively if "leftSubTree's left child and rightSubtree's right child" and
+		 "leftSubTree's right child and rightSubtree's left child" are equal 
+		*/
+        if(p !== null && q !== null){
+            return((p.val === q.val)
+                    && isMirror(p.left,q.right)
+                    && isMirror(p.right,q.left)
+                    )
+        }
+        return false;
+    
+    }; 
+    
+    return isMirror(root.left,root.right)
+}
