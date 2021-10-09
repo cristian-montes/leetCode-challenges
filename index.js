@@ -1080,6 +1080,7 @@ var isSameTree = function(p, q) {
 }
 
 //112 PATH SUM
+//EXPLANATION: this is solved using recursion. First we check for the root to have some values. Second we check if the for the nodes on both sides of the tree to be null and the result to be zero, if that is true we have found the path to the node that equal our targetSum. If the two first checks are not true, we use the recursive solution to check the existance for the path to that node leave that equals our targetSum.
 var hasPathSum = function(root, targetSum) {
     if(root === null){
         return false;
