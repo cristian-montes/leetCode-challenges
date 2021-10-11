@@ -1095,7 +1095,6 @@ var hasPathSum = function(root, targetSum) {
 
 
 //101 Symmetric Tree
-
 var isSymmetric = function(root) {
     var isMirror = function(p, q) {
         if(p===null && q===null) return true;
@@ -1110,8 +1109,29 @@ var isSymmetric = function(root) {
                     )
         }
         return false;
-    
     }; 
-    
     return isMirror(root.left,root.right)
 }
+
+//110 BALANCE A BINARY TREE
+//EXPLANATION : A binary tree in which the left and right subtrees of everynode differ in height by no more than 1.
+var isBalanced = function(root) {
+
+    let balanced = true; 
+
+    const dfs = (node) => {
+        if(!node) return 0;
+        const left = dfs(node.left);
+        const right = dfs(node.right);
+        if (Math.abs(left -right) > 1) {
+            balanced = false;
+        }
+        return 1 + Math.max(left, right); 
+    }
+
+    dfs(root);
+    return balanced;
+};
+
+root = [3,9,20,null,null,15,7]
+isBalanced(root)
