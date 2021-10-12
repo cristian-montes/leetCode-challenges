@@ -1132,6 +1132,21 @@ var isBalanced = function(root) {
     dfs(root);
     return balanced;
 };
+// root = [3,9,20,null,null,15,7]
+// isBalanced(root)
 
-root = [3,9,20,null,null,15,7]
-isBalanced(root)
+//145 BINARY TREE POST ORDER TRAVERSAL
+var postorderTraversal = function(root) {
+    let arr = [];
+    const postOrder = root => {
+        if(!root) return;
+        postOrder(root.left);
+        postOrder(root.right);
+        arr.push(root.val)
+    }
+  postOrder(root);
+  return arr;
+};
+
+root = [1,null,2,3]
+postorderTraversal(root)
