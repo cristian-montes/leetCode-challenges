@@ -1148,5 +1148,18 @@ var postorderTraversal = function(root) {
   return arr;
 };
 
-root = [1,null,2,3]
-postorderTraversal(root)
+// root = [1,null,2,3]
+// postorderTraversal(root)
+
+//108 CONVERT SORTED ARRAY TO BINARY SEARCH TREE
+var sortedArrayToBST = function(nums) {
+    let buildBTS = function(leftIndex, rightIndex) {
+        if(leftIndex === rightIndex) return new TreeNode(nums[leftIndex]);
+        let midIndex = Math.floor((leftIndex + rightIndex)/2);
+        let node = new TreeNode(nums[midIndex]);
+        if(leftIndex <= midIndex - 1) node.left = buildBTS(leftIndex, midIndex - 1);
+        node.right = buildBTS(midIndex + 1, rightIndex);
+        return node;
+    }
+    return buildBTS(0, nums.length - 1);
+};
