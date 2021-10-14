@@ -1163,3 +1163,4 @@ var sortedArrayToBST = function(nums) {
     }
     return buildBTS(0, nums.length - 1);
 };
+
