@@ -1,5 +1,5 @@
 // BUBBLE SORTING ALGORITHM
-const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+const numbers = `[99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];`
 
 function bubbleSort(array) {
 
@@ -54,10 +54,10 @@ function insertionSorty(array){
     return array;
 }
 
-const numbers2= [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
 
-insertionSorty(numbers);
-console.log(numbers);
+
+// insertionSorty(numbers);
+// console.log(numbers);
 
 function insertionSorty2(array){
     for(let i =0; i< array.length-1; i++){
@@ -78,4 +78,40 @@ function insertionSorty2(array){
     return array;
 }
 
+//---------------------------------------------------------------------------------------------------------//
+/
+const numbers2= [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
 
+function mergeSorty(array){
+    if(array.length === 1){
+        return array
+    }
+    
+    const half =  array.length/2;
+
+    const left = array.slice(0, half);
+
+    const right = array.slice(half, array.length);
+    
+    return mergeSort(
+        mergeSorty(left),
+        mergeSorty(right)
+    )
+}
+
+function mergeSort(left, right){
+    let sortedArr = [];
+
+    while(left.length && right.length){
+        if(left[0] < right[0]){
+            sortedArr.push(left.shift());
+        } else {
+            sortedArr.push(right.shift());
+        }
+    }
+
+    return [...sortedArr, ...left, ...right];
+}
+
+const leftRight = mergeSorty(numbers2);
+console.log(leftRight);
