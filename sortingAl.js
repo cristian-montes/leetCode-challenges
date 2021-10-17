@@ -118,6 +118,7 @@ function mergeSort(left, right){
 
 const numbers3= [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
 
+     //***** QUICKSORT *****/
 function quickSort(array, left, right){
     const len = array.length; 
     let pivot;
@@ -133,7 +134,7 @@ function quickSort(array, left, right){
     }
     return array;
   }
-     
+     //***** PARTION *****/
   function partition(array, pivot, left, right){
     let pivotValue = array[pivot];
     let partitionIndex = left;
@@ -147,7 +148,7 @@ function quickSort(array, left, right){
     swap(array, right, partitionIndex);
     return partitionIndex;
   }
-  
+    //***** SWAP *****/
   function swap(array, firstIndex, secondIndex){
       var temp = array[firstIndex];
       array[firstIndex] = array[secondIndex];
