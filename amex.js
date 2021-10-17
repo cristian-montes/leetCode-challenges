@@ -2,6 +2,7 @@ function wordPattern(pattern, s){
 // if s and pattern do not have the same length return false. 
 const word = s.split(' ');
 
+if( word.length !== pattern.length) return false;
 //create a map for patter.
 const mapWord = new Map();
 
