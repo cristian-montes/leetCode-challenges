@@ -1,3 +1,4 @@
+//290 WORD PATTERN
 function wordPattern(pattern, s){
 // if s and pattern do not have the same length return false. 
 const word = s.split(' ');
@@ -42,3 +43,9 @@ pattern = "abba", s = "dog cat cat dog"
 
 wordPattern(pattern, s);
 
+//197. Rising Temperature - MS SQL SERVER
+`SELECT W2.Id AS Id
+FROM Weather w1
+JOIN Weather w2 ON DATEDIFF(DAY, W1.RecordDate, W2.RecordDate) =1
+AND W2.Temperature > W1.Temperature;
+`
