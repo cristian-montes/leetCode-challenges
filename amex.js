@@ -39,9 +39,8 @@ const mapPattern = new Map();
 
 }
 
-pattern = "abba", s = "dog cat cat dog"
-
-wordPattern(pattern, s);
+// pattern = "abba", s = "dog cat cat dog"
+// wordPattern(pattern, s);
 
 //197. Rising Temperature - MS SQL SERVER
 `SELECT W2.Id AS Id
@@ -66,5 +65,16 @@ var containsNearbyDuplicate = function(nums, k) {
     return false;
 };
 
-nums = [1,2,3,1,2,3], k = 2
-containsNearbyDuplicate(nums, k)
+// nums = [1,2,3,1,2,3], k = 2
+// containsNearbyDuplicate(nums, k)
+
+//258. Add Digits
+var addDigits = function(num) {
+ if(num <=9) return num;
+
+ return num- (Math.floor(num/9)) * 9 || 9;
+};
+
+num =934;
+addDigits(num)
+
