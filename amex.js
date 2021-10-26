@@ -49,3 +49,22 @@ FROM Weather w1
 JOIN Weather w2 ON DATEDIFF(DAY, W1.RecordDate, W2.RecordDate) =1
 AND W2.Temperature > W1.Temperature;
 `
+
+//219. Contains Duplicate II
+var containsNearbyDuplicate = function(nums, k) {
+    let mappy = new Map();
+    for(let i = 0; i < nums.length; i++){
+        let current  = nums[i];
+        if(mappy.has(current) && i - mappy.get(current) <= k){
+            console.log(true);
+            return true;
+        }else{
+            mappy.set(current, i);
+        }
+    }
+    console.log(false);
+    return false;
+};
+
+nums = [1,2,3,1,2,3], k = 2
+containsNearbyDuplicate(nums, k)
