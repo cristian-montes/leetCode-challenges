@@ -81,19 +81,26 @@ addDigits(num)
 
 //415. Add Strings
 var addStrings = function(num1, num2) {
-    let arr = [];
-    if(num1.length>0){
-        arr.push(num1);
-    }
+    let larg1 = num1.length-1
+    let larg2 = num2.length-1
+    let tracker = 0
+    let result = ''
 
-    if(num2.length>0){
-        arr.push(num2);
+    while(larg1 >= 0 || larg2 >=0) {
+        let digit1 = (larg1 >= 0) ? num1[larg1--] - '0': 0;
+        let digit2 = (larg2 >= 0) ? num2[larg2--] - '0': 0;
+    
+        let sum = digit1 + digit2 + tracker
+        let resultDigit = sum % 10
+        tracker = Math.floor(sum / 10)
+        result += resultDigit
+    
     }
-    let sum = Number(arr[0] + Number(arr[1]));
-    // let sum = arr.reduce((a,b) => Number(a) + Number(b));
-    console.log(sum);
-     return sum.toString();
-};
+    if(tracker !== 0) {
+        result += tracker
+    }
+    return result.split('').reverse().join('');
+}
 
 num1 = "9333852702227987", num2 = "85731737104263"
 
