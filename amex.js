@@ -78,3 +78,26 @@ var addDigits = function(num) {
 num =934;
 addDigits(num)
 
+
+//415. Add Strings
+var addStrings = function(num1, num2) {
+    let arr = [];
+    if(num1.length>0){
+        arr.push(num1);
+    }
+
+    if(num2.length>0){
+        arr.push(num2);
+    }
+    let sum = Number(arr[0] + Number(arr[1]));
+    // let sum = arr.reduce((a,b) => Number(a) + Number(b));
+    console.log(sum);
+     return sum.toString();
+};
+
+num1 = "9333852702227987", num2 = "85731737104263"
+
+
+
+
+addStrings(num1, num2);
