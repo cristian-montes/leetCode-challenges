@@ -19,5 +19,25 @@ var isPalindrome = function(x) {
  
 };
 
-x = 10
-isPalindrome(x)
+// x = 10
+// isPalindrome(x)
+
+
+var romanToInt = function(s) {
+    
+    const romman = {
+    I:1,             
+    V:5,         
+    X:10,            
+    L:50,            
+    C:100,         
+    D:500,           
+    M:1000
+    }
+
+    const ss = s.split('');
+    console.log(ss);
+};
+
+s = "LVIII"
+romanToInt(s);
