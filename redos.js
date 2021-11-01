@@ -24,27 +24,30 @@ var isPalindrome = function(x) {
 
 
 var romanToInt = function(s) {
-    
     const romman = {
-    I:1,            
-    V:5,       
-    X:10,            
-    L:50,                   
-    D:500,           
-    M:1000
+    "I":1,            
+    "V":5,       
+    "X":10,            
+    "L":50,
+    "C": 100,                  
+    "D":500,           
+    "M":1000
     }
-
-    const ss = s.split('');
+    
+    const arreyto = s.split('');
+    
     let count = 0;
     let current;
     let cureentValue;
     let next;
     let nextValue;
-    for(let i =0; i < ss.length; i++){
-        current = ss[i];
+    
+    for(let i =0; i < arreyto.length; i++){
+        current = arreyto[i];
+        console.log(current);
         cureentValue = romman[current];
 
-        next = ss[i+1];
+        next = arreyto[i+1];
         nextValue = romman[next];
 
         if(cureentValue < nextValue){
@@ -59,5 +62,5 @@ var romanToInt = function(s) {
 
 };
 
-s = "LVIII"
-romanToInt(s);
+let si = "MCMXCIV"
+romanToInt(si);
