@@ -44,7 +44,6 @@ var romanToInt = function(s) {
     
     for(let i =0; i < arreyto.length; i++){
         current = arreyto[i];
-        console.log(current);
         cureentValue = romman[current];
 
         next = arreyto[i+1];
@@ -57,10 +56,31 @@ var romanToInt = function(s) {
             count += (cureentValue);
         }
     }
-    console.log(count);
     return count;
 
 };
 
-let si = "MCMXCIV"
-romanToInt(si);
+// let si = "MCMXCIV"
+// romanToInt(si);
+
+var longestCommonPrefix = function(strs) {
+
+   if(!strs.length) return strs;
+
+    for (let i=0; i< strs[0].length; i++){
+        for(let j=1; j< strs.length; j++){
+            if(strs[0][i] !== strs[j][i]){
+                console.log('string', strs[0].slice(0, j))
+                return strs[0].slice(0, i);
+
+            }
+        }
+    }
+
+    return strs[0];
+
+};
+
+
+strs = ["flower","flow","flight"]
+longestCommonPrefix(strs);
