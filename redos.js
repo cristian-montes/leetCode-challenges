@@ -87,24 +87,28 @@ var longestCommonPrefix = function(strs) {
 
 //20 VALID PARENTHESES
 var isValid = function(s) {
-    let stack =[];
+let stack = []
 
-    for( i=0; i<s.length; i++){
-        let char = stack[stack.length -1]
-        if(s[i] === '('|| s[i]=== '{' || s[i] ==='['){
-        stack.push(s[i]);
+    for(let i =0; i<s.length; i++){
+        let char = stack[stack.length-1];
 
-        } else if ( 
-            (char === '(' && s[i] === ')') ||
-            (char === '{' && s[i] === '}') ||
-            (char === '[' && s[i] === ']')
+        if( s[i] === "(" || s[i] === "[" ||s[i] === "{" ){
+            stack.push(s[i]);
+        }
+        
+        else if(
+            (char === "(" && s[i] === ")")||
+            (char === "{" && s[i] === "}")||
+            (char === "[" && s[i] === "]")
             ){
-            stack.pop()
-            
-        } else return false
+                stack.pop();
+        }
+        
+        else return false;
+
     }
-    console.log(stack.length);
-    return stack.length ? false : true;
+        console.log('here')
+        return stack.length ? false : true;
 };
 
 s = "{[]}"
