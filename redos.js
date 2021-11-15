@@ -113,6 +113,7 @@ let stack = []
 // s = "{[]}"
 // isValid(s);
 
+// 21 MERGE TWO SORTED LIST
 var mergeTwoLists = function(l1, l2) {
     if(!l1) return l2;
     if(!l2) return l1;
@@ -126,5 +127,23 @@ var mergeTwoLists = function(l1, l2) {
     return l2;
 };
 
-l1 = [1,2,4], l2 = [1,3,4];
-mergeTwoLists(l1, l2);
+// l1 = [1,2,4], l2 = [1,3,4];
+// mergeTwoLists(l1, l2);
+
+
+// 26. REMOVE DUPLICATES FROM SORTED ARRAY
+var removeDuplicates = function(nums) {
+    let numero = 1;
+    
+    for(let i = 0; i< nums.length-1; i++){
+        if(nums[i] !== nums[i+1]){
+            nums[numero++]=nums[i+1]
+        }
+      
+    }
+    return numero;
+};
+
+nums = [1,1,2]
+
+removeDuplicates(nums);
