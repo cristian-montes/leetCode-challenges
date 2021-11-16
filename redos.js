@@ -144,6 +144,17 @@ var removeDuplicates = function(nums) {
     return numero;
 };
 
-nums = [1,1,2]
+// nums = [1,1,2]
+// removeDuplicates(nums);
 
-removeDuplicates(nums);
+var removeElement = function(nums, val) {
+    for(let i = nums.length;  i>=0;  i--){
+        if(val === nums[i]){
+            nums.splice(i, 1);
+        }
+    }
+    return nums.length;
+};
+
+nums = [3,2,2,3], val = 3
+removeElement(nums, val);
