@@ -160,12 +160,12 @@ var removeElement = function(nums, val) {
 // removeElement(nums, val);
 
 
-// 28. REMOVE strStr()
+// 28. Implment strStr()
 var strStr = function(haystack, needle) {
     if(needle === haystack) return 0;
 
     for(let i=0; i< haystack.length; i++){
-        if(needle == haystack.substring(i, i+needle.length)){
+        if(needle == haystack.substring(i, i + needle.length)){
           return i;
         } 
     }
