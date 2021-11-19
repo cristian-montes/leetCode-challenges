@@ -176,8 +176,6 @@ var strStr = function(haystack, needle) {
 // haystack = "hello", needle = "ll"
 // strStr(haystack, needle);
 
-
-
 //35 Search Insert Position -- Brute Force
 var searchInsert = function(nums, target) {
     if(nums.length === 0 || !nums){
