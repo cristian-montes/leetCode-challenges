@@ -231,7 +231,9 @@ var lengthOfLastWord = function(s) {
 // lengthOfLastWord(s);
 
 
-//66. Plus one
+//66. Plus one 
+//****BigInt is a special numeric type that provides support for integers of arbitrary length.
+//*** A bigint is created by appending n to the end of an integer literal or by calling the function BigInt that creates bigints from strings, numbers etc.
 var plusOne = function(digits) {
 
     const numero = BigInt(digits.join(''))
