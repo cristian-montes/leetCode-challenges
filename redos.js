@@ -210,11 +210,23 @@ var maxSubArray = function(nums) {
     
    
 };
+// nums = [-2,1,-3,4,-1,2,1,-5,4];
+// maxSubArray(nums);
 
+//58 Length of Last Word
+var lengthOfLastWord = function(s) {
+    let strng = s.split(' ');
+    let arr =[];
 
-nums = [-2,1,-3,4,-1,2,1,-5,4];
+    for(let i = 0;  i < strng.length; i++){
+        if(strng[i]){
+            arr.push(strng[i]);
+        }
+    }
 
-maxSubArray(nums);
+    return arr[arr.length-1].length;     
+    
+}
+s = "luffy is still joyboy";
 
- // if( count <= 0 ){
-        //     count = 0
+lengthOfLastWord(s);
