@@ -196,31 +196,25 @@ var searchInsert = function(nums, target) {
 
 //53 Maximum Subarray
 var maxSubArray = function(nums) {
-    if(nums.length === 0) return nums;
 
-    let count = 0;
-    let final = 0;
+    let holder= nums[0]
 
     for(let i =0; i < nums.length; i++){
-        let acc = count + nums[i];
-        count = acc;
-
-        console.log('here',acc);
-
-         if( count <= 0 ){
-            count = 0
-        } 
-
-        if(acc > final){
-            final = acc;
+        if(nums[i-1] > 0){
+            nums[i] += nums[i-1];
         }
+        holder = Math.max(nums[i], holder)
     }
-    // if does not work use reduce..
-    console.log('count', count);
-    console.log('final', final)
-    return final;
+        
+    return holder;
+    
+   
 };
 
 
-nums = [-1]
+nums = [-2,1,-3,4,-1,2,1,-5,4];
+
 maxSubArray(nums);
+
+ // if( count <= 0 ){
+        //     count = 0
