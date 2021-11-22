@@ -213,7 +213,7 @@ var maxSubArray = function(nums) {
 // nums = [-2,1,-3,4,-1,2,1,-5,4];
 // maxSubArray(nums);
 
-//58 Length of Last Word
+//58 Length of Last Word  ***DIDBYMYSELF**
 var lengthOfLastWord = function(s) {
     let strng = s.split(' ');
     let arr =[];
@@ -227,6 +227,26 @@ var lengthOfLastWord = function(s) {
     return arr[arr.length-1].length;     
     
 }
-s = "luffy is still joyboy";
+// s = "luffy is still joyboy";
+// lengthOfLastWord(s);
 
-lengthOfLastWord(s);
+
+//66. Plus one
+var plusOne = function(digits) {
+
+    const numero = BigInt(digits.join(''))
+    const one = 1n;
+    const number = (numero + one).toString();
+
+    let newDigits = [];
+
+    for(let i = 0; i< number.length; i++){
+        newDigits.push(+number[i]);
+    }
+   
+    return newDigits;
+};
+
+// digits = [6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,3];
+// digits = [4,3,2,1]
+// plusOne(digits);
