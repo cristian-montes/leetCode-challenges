@@ -231,7 +231,7 @@ var lengthOfLastWord = function(s) {
 // lengthOfLastWord(s);
 
 
-//66. Plus one 
+//66. PLUS ONE 
 //****BigInt is a special numeric type that provides support for integers of arbitrary length.
 //*** A bigint is created by appending n to the end of an integer literal or by calling the function BigInt that creates bigints from strings, numbers etc.
 var plusOne = function(digits) {
@@ -248,7 +248,29 @@ var plusOne = function(digits) {
    
     return newDigits;
 };
-
 // digits = [6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,3];
-// digits = [4,3,2,1]
 // plusOne(digits);
+
+//67. ADD BINARY
+var addBinary = function(a, b) {
+    let carry = 0, result = "";
+   
+     let i = a.length - 1, j = b.length - 1;
+   
+     while(i >= 0 || j >= 0) {
+       let num1 = i < 0 ? 0 : a[i] | 0;
+       let num2 = j < 0 ? 0 : b[j] | 0;
+       carry = carry + num1 + num2;
+       result = carry % 2 + result; 
+       carry = carry / 2 | 0;
+       i--;
+       j--;
+     }
+   
+     return carry ? carry + result : result;
+   }
+
+
+a = "1010", b = "1011"
+
+addBinary(a,b)
