@@ -270,7 +270,14 @@ var addBinary = function(a, b) {
      return carry ? carry + result : result;
    }
 
+// a = "1010", b = "1011"
+// addBinary(a,b)
 
-a = "1010", b = "1011"
 
-addBinary(a,b)
+//69 Sqrt(x)
+var mySqrt = function(x) {
+    return Math.floor(Math.sqrt(x));
+};
+
+x = 8
+mySqrt(x)
