@@ -279,5 +279,26 @@ var mySqrt = function(x) {
     return Math.floor(Math.sqrt(x));
 };
 
-x = 8
-mySqrt(x)
+// x = 8
+// mySqrt(x)
+
+//70. Climbing Stair
+var climbStairs = function(n) {
+    
+    const obj = {
+        "0":1,
+        "1":1
+    };
+
+    if (n <=1) return 1;
+    for(let i =2; i <= n; i++){
+      
+        obj[i] = obj[i-1] + obj[i-2];     
+    }
+    console.log(obj)
+    return obj[n];
+}; 
+
+n = 3
+
+climbStairs(n);
