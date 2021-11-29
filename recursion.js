@@ -2,7 +2,8 @@
 
 function findFactorialRecursive(number){
 
-    if(number === 0) return ' done counting'
+    if(number === 2) return 2;
+
     return number * findFactorialRecursive(number-1)
     
 }
@@ -12,7 +13,7 @@ function findFactorialRecursive(number){
 
 function findFactorialIterative(number) {
     let count = 1;
-    for(let i =2;  i <= number; i++){
+    for(let i =2;  i <= number; i++){  // we started at 2 since 1*2 is equal to 2 and viceversa and if we start looping at 2 we save a couple loops to go throught.
         let adder = count * i;
         count = adder;
     }
@@ -21,4 +22,4 @@ function findFactorialIterative(number) {
 }
 
 number = 5;
-findFactorialIterative(number);
+findFactorialRecursive(number)
