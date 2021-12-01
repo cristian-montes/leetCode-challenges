@@ -31,6 +31,13 @@ function findFactorialIterative(number) {
 
 
 function fibonacciIterative(n){
+    let arr = [0,1]
+
+    for(let i =2; i < n + 1; i++){
+        arr.push(n[i-2] + n[i-1]);
+    }
+
+    return arr[n];
 
 }
 
@@ -41,4 +48,6 @@ function fibonacciRecursive(n){
     return fibonacciRecursive(n-1) + fibonacciIterative(n-2);
 }
 
+n = 5;
+fibonacciIterative(n)
 

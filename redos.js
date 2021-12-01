@@ -298,7 +298,19 @@ var climbStairs = function(n) {
     console.log(obj)
     return obj[n];
 }; 
+// n = 3
+// climbStairs(n);
 
-n = 3
+var deleteDuplicates = function(head) {
+    let current = head;
 
-climbStairs(n);
+    while(current != null && current.next != null){
+        if(current.val === current.next.val){
+            current.next = current.next.next
+        } else{
+            current = current.next;
+        }
+    }
+    
+    return head;
+};
