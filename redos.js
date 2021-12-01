@@ -301,6 +301,7 @@ var climbStairs = function(n) {
 // n = 3
 // climbStairs(n);
 
+//83. Remove Duplicates from Sorted List
 var deleteDuplicates = function(head) {
     let current = head;
 
@@ -311,6 +312,6 @@ var deleteDuplicates = function(head) {
             current = current.next;
         }
     }
-    
+
     return head;
 };

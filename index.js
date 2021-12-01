@@ -1166,3 +1166,8 @@ var sortedArrayToBST = function(nums) {
     return buildBTS(0, nums.length - 1);
 };
 
+// 237 DELETE NODE IN A LINKED LIST
+var deleteNode = function(node) {
+    node.val =  node.next.val;
+    node.next = node.next.next;
+}
