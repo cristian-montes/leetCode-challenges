@@ -320,11 +320,11 @@ var merge = function(nums1, m, nums2, n) {
     m --;
     n --;
 
-    let i = nums1.length -1;
+    let i = nums1.length -1; // this is the array that is taking everything and also the one with the longest length.
     
     while (i >=0){
         if(n > -1 && m > -1 && nums1[m] >= nums2[n]){
-            nums1[i] = nums1[m];
+            nums1[i] = nums1[m];                        //we are putting everything in array  nums1, because of of the instructtings and we do not have to return the new sorted array;
             nums1[m] = nums2[n];
             m--;
         }
@@ -336,6 +336,6 @@ var merge = function(nums1, m, nums2, n) {
     }
     
 };
+// nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+// merge(nums1, m, nums2, n)
 
-nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
-merge(nums1, m, nums2, n)
