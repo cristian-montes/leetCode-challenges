@@ -14,9 +14,9 @@ function plusMinus(arr) {
             cero:0
         };
 
-        let i = arr.length;
+        console.log(arr);
     // loop throught the array checking if values
-    while(i >=0){
+  for(let i=0; i< arr.length; i++){
        let signo = Math.sign(arr[i]);
 
        if(signo === 1){
@@ -27,7 +27,6 @@ function plusMinus(arr) {
            map1.cero++
        }
 
-       i--
     }
     // store those values and increment their count in a hash table
     console.log(map1);
