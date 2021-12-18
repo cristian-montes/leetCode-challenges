@@ -1171,3 +1171,44 @@ var deleteNode = function(node) {
     node.val =  node.next.val;
     node.next = node.next.next;
 }
+
+
+
+
+
+//225.IMPLEMENT STACK USING QUEUES
+
+var MyStack = function() {
+    this.arr1 = [];
+    this.arr2 = [];
+};
+
+MyStack.prototype.push = function(x) {
+    this.arr1.push(x);
+};
+
+MyStack.prototype.pop = function() {
+    for(let i=0; i<this.arr1.length; i++) {
+        this.arr2.push(this.arr1.pop())
+    }
+    for(let i=0; i<this.arr2.length-1; i++) {
+        this.arr1.push(this.arr2.pop())
+    }
+    return this.arr2.pop()
+};
+
+MyStack.prototype.top = function() {
+    for(let i=0; i<this.arr1.length; i++) {
+        this.arr2.push(this.arr1.pop())
+    }
+    for(let i=0; i<this.arr2.length-1; i++) {
+        this.arr1.push(this.arr2.pop())
+    }
+    const top = this.arr2.pop();
+    this.arr1.push(top)
+    return top
+};
+
+MyStack.prototype.empty = function() {
+    return this.arr1.length > 0 ? false : true
+};
