@@ -1216,8 +1216,9 @@ MyStack.prototype.empty = function() {
 
 
 
-// 118. PASCAL'S TRIANGLE 
-var generate = function(numRows) {
+// **************************************** 118. PASCAL'S TRIANGLE ********************************************************* //
+
+const generate = function(numRows) {
     let pascalsTriangle = new Array(numRows);
 
     for(let i = 0;  i<numRows; i++){
@@ -1235,3 +1236,24 @@ var generate = function(numRows) {
     console.log(pascalsTriangle)
     return pascalsTriangle;
 }
+
+
+// **************************************** 119. PASCAL'S TRIANGLE II ********************************************************* //
+const getRow = function(rowIndex){
+    let pascalsTriangleII = new Array(rowIndex);
+    for(let i = 0; i<rowIndex+1; i++){
+        let row = new Array(i+1);
+        row[0] = 1;
+        row[row.length -1] = 1;
+
+        for(let j= 1; j<row.length-1; j++){
+            let rowAbove = pascalsTriangleII[i-1];
+            row[j] = rowAbove[j] + rowAbove[j-1];
+        }
+        pascalsTriangleII[i] = row;
+    }
+    console.log(pascalsTriangleII[rowIndex]);
+return pascalsTriangleII[rowIndex];
+};
+
+getRow(3);
