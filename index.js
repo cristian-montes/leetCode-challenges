@@ -1212,3 +1212,18 @@ MyStack.prototype.top = function() {
 MyStack.prototype.empty = function() {
     return this.arr1.length > 0 ? false : true
 };
+
+
+
+
+// 118. PASCAL'S TRIANGLE 
+var generate = function(numRows) {
+    let pascalsTriangle = new Array(numRows);
+
+    for(let i = 0;  i < numRows; i++){
+        row[0]=1;
+        row[numRows.left-1] = 1;
+    }
+
+
+};

@@ -1,5 +1,5 @@
 // MAINTAIN INVENTORY LIST
-unction inventoryList() {
+function inventoryList() {
 	let items = [
 	  {
   	  name: 'Vladimir'
