@@ -1278,4 +1278,34 @@ const reverseBits = function(n){
 }
 // reverseBits(43261596)
 
-      
+// **************************************** 191. NUMBER OF 1 BITS ********************************************************* //
+const hammingWeight = function(n) {
+
+    let convertedBinary = n.toString(2);
+    
+    if(convertedBinary.length < 32){
+        const extra = 32 - convertedBinary.length;
+        const addExtra = '0'.repeat(extra);
+        convertedBinary = `${addExtra}${convertedBinary}`
+    }
+
+    let count = {};
+
+    for(let i = 0; i< convertedBinary.length; i++){
+        if(!count[convertedBinary[i]]){
+            count[convertedBinary[i]]=0;
+        }
+        count[convertedBinary[i]]++
+    }
+
+
+    if(count['1']){
+        return count['1']
+    }
+
+    return 0;
+};
+
+// n=0
+// hammingWeight(n);
+
