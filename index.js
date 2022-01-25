@@ -1256,4 +1256,26 @@ const getRow = function(rowIndex){
 return pascalsTriangleII[rowIndex];
 };
 
-getRow(3);
+// getRow(3);
+
+// **************************************** 190. REVERSE BITS ********************************************************* //
+const reverseBits = function(n){
+  let convertedOne = n.toString(2);
+
+  if(convertedOne.length < 32){
+      const extra = 32 - convertedOne.length;
+      const addExtra = '0'.repeat(extra);
+      convertedOne = `${addExtra}${convertedOne}`
+  }
+
+  const nArray = convertedOne.split('');
+   
+  const reversedArr = nArray.reverse().join('');
+
+  const convertedReverseBits = parseInt(reversedArr, 2);
+
+  return convertedReverseBits
+}
+// reverseBits(43261596)
+
+      
