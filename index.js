@@ -1309,3 +1309,41 @@ const hammingWeight = function(n) {
 // n=0
 // hammingWeight(n);
 
+// **************************************** 205. ISOMORPHIC STRINGS ********************************************************* //
+var isIsomorphic = function(s, t) {
+
+    if(s.length !== t.length){
+        return false
+    } 
+
+    if(s === t){
+        return true;
+    }
+
+
+    let sHash = {};
+    let tHash = {};
+
+    for(let i = 0; i <s.length; i++){
+        let charS = s[i];
+        let charT = t[i];
+
+        if(!tHash[charT]){
+            tHash[charT] = charS
+        }
+        if(!sHash[charS]){
+            sHash[charS] = charT
+        }
+
+        if(sHash[charS] !== charT || tHash[charT] !== charS){
+            return false;
+        }
+    }
+
+
+    return true
+
+};
+
+s = "paper", t = "title"
+isIsomorphic(s, t)
