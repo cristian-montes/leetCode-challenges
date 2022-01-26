@@ -1347,3 +1347,7 @@ var isIsomorphic = function(s, t) {
 
 s = "paper", t = "title"
 isIsomorphic(s, t)
+
+
+
+
