@@ -83,6 +83,69 @@ function miniMaxSum(arr) {
     const theMaxAndMin = `${minSum} ${maxSum}`
   return console.log(theMaxAndMin);
 }
+// arr = [ 1, 2, 3, 4, 5]
+// miniMaxSum(arr);
 
-arr = [ 1, 2, 3, 4, 5]
-miniMaxSum(arr);
+
+// ******************************************************************** TIME CONVERSION ****************************************************************
+
+// Complete the timeConversion function in the editor below. It should return a new string representing the input time in 24 hour format.
+// timeConversion has the following parameter(s):
+// string s: a time in  hour format
+// Returns
+// string: the time in  hour format
+// Sample Input
+
+// 07:05:45PM
+// Sample Output
+
+// 19:05:45
+
+function timeConversion(s) {
+    const splitTime = s.split(':');
+    
+    let militaryTime = '';
+
+    if(s[s.length-2] === 'P' && s[s.length-1] === 'M' && +splitTime[0] < 12){
+        let newTime = +splitTime[0] + 12;
+        militaryTime = `${newTime}:${splitTime[1]}:${splitTime[2][0]}${splitTime[2][1]}`
+    }
+
+    else if(s[s.length-2] === 'P' && s[s.length-1] === 'M' && +splitTime[0] === 12){
+        let newTime = splitTime[0];
+        militaryTime = `${newTime}:${splitTime[1]}:${splitTime[2][0]}${splitTime[2][1]}`
+    }
+
+    else if(s[s.length-2] === 'A' && s[s.length-1] === 'M' && +splitTime[0] === 12){
+        let newTime = '00';
+        militaryTime = `${newTime}:${splitTime[1]}:${splitTime[2][0]}${splitTime[2][1]}`
+    }
+
+    else if(s[s.length-2] === 'A' && s[s.length-1] === 'M' && +splitTime[0] < 12){
+        let newTime = splitTime[0];
+        militaryTime = `${newTime}:${splitTime[1]}:${splitTime[2][0]}${splitTime[2][1]}`
+    }
+
+    
+    return militaryTime;
+}
+
+// s = '07:05:45PM'
+// s = '12:05:45PM'
+// s = '12:05:45AM'
+// s = '12:05:45PM'
+
+// timeConversion(s);
+
+
+//************************************************************** GET THE MEDIAN OF AN ARRAY OF NUMBERS ***********************************************************************************//
+function getMedian(arr){
+    const sortedArra = arr.sort((a,b) => a - b)
+    const mid = Math.floor(arr.length/2);
+
+    return arr.length % 2 !== 0 ? sortedArra[mid] : (sortedArra[mid - 1] + sortedArra[mid ])/2
+
+}
+
+arr = [5, 6, 50, 1, -5]
+getMedian(arr)
