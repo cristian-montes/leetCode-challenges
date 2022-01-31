@@ -147,5 +147,33 @@ function getMedian(arr){
 
 }
 
-arr = [5, 6, 50, 1, -5]
-getMedian(arr)
+// arr = [5, 6, 50, 1, -5]
+// getMedian(arr)
+
+
+
+//************************************************************** GET THE MEDIAN OF AN ARRAY OF NUMBERS ***********************************************************************************//
+
+function lonelyinteger(a) {
+
+    let lonelyMap= {};
+
+    for(let i = 0; i < a.length; i++){
+        if(!lonelyMap[a[i]]){
+            lonelyMap[a[i]] = 0;
+        }
+
+        lonelyMap[a[i]]++
+    }
+
+    for(let property in lonelyMap){
+        if(lonelyMap[property] === 1){
+            console.log('lonelyMap', +property)
+            return +property;
+        }
+    }
+
+}
+
+a=[1,2,3,4,3,2,1]
+lonelyinteger(a)
