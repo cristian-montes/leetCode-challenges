@@ -152,7 +152,7 @@ function getMedian(arr){
 
 
 
-//************************************************************** GET THE MEDIAN OF AN ARRAY OF NUMBERS ***********************************************************************************//
+//************************************************************** INDETIFY THE LONLEY INTEGER ***********************************************************************************//
 
 function lonelyinteger(a) {
 
@@ -175,5 +175,30 @@ function lonelyinteger(a) {
 
 }
 
-a=[1,2,3,4,3,2,1]
-lonelyinteger(a)
+// a=[1,2,3,4,3,2,1]
+// lonelyinteger(a)
+
+//************************************************************** ABSOLUTE DIFFERENCE OF SUMS OF DIAGONALS ***********************************************************************************//
+function diagonalDifference(arr) {
+    let n = arr[0].length;
+
+    let leftToRight = 0;
+    let rightToLeft = 0;
+
+    for(let i = 0, j = n - 1; i < n; i++, j--) {
+        leftToRight +=arr[i][i]
+       rightToLeft += arr[i][j];
+    }
+
+    let differnce = leftToRight - rightToLeft;
+
+    return Math.abs(differnce);
+
+}
+
+arr = [[1,2,3],
+       [4,5,6],
+       [9,8, 9]
+      ];
+
+diagonalDifference(arr);
