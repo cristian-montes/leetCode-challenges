@@ -196,9 +196,66 @@ function diagonalDifference(arr) {
 
 }
 
-arr = [[1,2,3],
-       [4,5,6],
-       [9,8, 9]
-      ];
+// arr = [[1,2,3],
+//        [4,5,6],
+//        [9,8, 9]
+//       ];
 
-diagonalDifference(arr);
+// diagonalDifference(arr);
+
+//************************************************************** ABSOLUTE DIFFERENCE OF SUMS OF DIAGONALS ***********************************************************************************//
+// function countingSort(arr) {
+//     if(arr.length < 2) return arr;
+
+//     let largestIndex = 0;
+
+//     for(let i = 0; i < arr.length; i++){
+//         if(largestIndex < arr[i]){
+//             largestIndex = arr[i];
+//         }
+//     }
+
+//     const countingArray =  new Array(largestIndex + 1);
+
+//     for(let value of arr){
+//         if(!countingArray[value]){
+//             countingArray[value] = 0;
+//         }
+
+//         countingArray[value]++
+//     }
+
+
+//     const resultArray = [];
+//     for(let i=0; i<countingArray.length; i++){
+//         while(countingArray[i] >0){
+//             resultArray.push(i);
+//             countingArray[i]--
+//         }
+//     }
+
+
+//     console.log(resultArray)
+//     return resultArray
+
+
+// }
+
+
+function countingSort(arr) {
+    let result = new Array(100)
+    result.fill(0);
+    
+    for (let i = 0; i < arr.length; i++) {
+        let val = arr[i];
+        result[val] = result[val] ? result[val] + 1 : 1; 
+    }
+    
+    return result;
+}
+
+arr = [6, 3, 8, 5, 9, 11, 9, 8, 17, 13, 18, 12, 11, 17, 8, 9]
+
+countingSort(arr)
+
+
