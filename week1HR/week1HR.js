@@ -241,6 +241,8 @@ function diagonalDifference(arr) {
 
 // }
 
+//************************************************************** COUNTING SORT ***********************************************************************************//
+
 
 function countingSort(arr) {
     let result = new Array(100)
@@ -254,8 +256,42 @@ function countingSort(arr) {
     return result;
 }
 
-arr = [6, 3, 8, 5, 9, 11, 9, 8, 17, 13, 18, 12, 11, 17, 8, 9]
+// arr = [6, 3, 8, 5, 9, 11, 9, 8, 17, 13, 18, 12, 11, 17, 8, 9]
 
-countingSort(arr)
+// countingSort(arr)
 
 
+//************************************************************** Flipping the Matrix ***********************************************************************************//
+function flippingMatrix(matrix) {
+    // Write your code here
+    let n = matrix.length/2;
+    let max = 0;
+    let total = 0;
+    
+    for(let row = 0; row < n; row++){
+        for(let col = 0; col < n; col++){
+            max = Number.MIN_VALUE;
+            // console.log('1',max)
+            max = Math.max(matrix[row][col], max)
+            // console.log('2',max)
+            max = Math.max(matrix[row][2 * n - col - 1], max)
+            // console.log('3',max)
+            max = Math.max(matrix[2* n - row -1][col], max)
+            // console.log('4',max)
+            max = Math.max(matrix[2*n - row -1][2*n - col - 1], max)
+            // console.log('5',max)
+            total +=max;
+        }
+    }
+    
+    return total
+}
+
+matrix= [
+    [112, 42, 83, 199],
+    [56, 125, 56, 49],
+    [15, 78, 101, 43],
+    [62, 98, 114, 108]
+];
+
+flippingMatrix(matrix);
