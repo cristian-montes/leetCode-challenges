@@ -1,0 +1,21 @@
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+    flex-flow: row wrap;
+ 
+    align-content: flex-end;
+ 
+    width: 100%
+   }
+ 
+   .single-box{
+     text-align: center;
+     margin: 3%;
+     width: 20%;
+     border: 1px solid;
+   }

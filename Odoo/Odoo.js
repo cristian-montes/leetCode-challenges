@@ -57,6 +57,9 @@ function findWieghtOfVowels(s){
     
     return totalVowelSum;
 }
+// s = "Welcome to Indonesia";
+// findWieghtOfVowels(s);
 
-s = "Welcome to Indonesia";
-findWieghtOfVowels(s);
+
+// Create a 3*3 box using flex property, For each box it should display zero as the count in the center
+
