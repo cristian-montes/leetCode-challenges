@@ -1,3 +1,12 @@
+//*****************************  HASH TABLES***********************************************************************************/
+//space O(n)
+// insert O(1)
+// lookup O(1)
+// delete O(1)
+// PRO they can improve time complexity to O(n)
+// CON Fast Access O(1), tradeoff: more memory O(n)
+// If collition happens use linked List
+
 class HashTable {
     data: any;
 
@@ -47,9 +56,40 @@ class HashTable {
 
 
 }
+// const myHashTable = new HashTable(50);
+// myHashTable.set('grapes', 10000);
+// myHashTable.set('apples', 40);
+// myHashTable.get('apples');
+
+// ************************************************************************** RECURRING CHARACTER **************************************************************************
+//GOOGLE QUESTION
+//Gven an array = [2,5,1,2,3,5,1,2,4] , [2,5,1,4,3,5,1,4,2]
+//It should return 2
+
+//Given an array = [2,1,1,2,3,5,1,2,4]
+//It should return 1
+
+//Given an array = [2,3,4,5]
+//It should return undefined
+
+function recurringCharacter(arr: number[]):number | undefined {
+
+    let tracker = {};
+
+        for(let i = 0; i <arr.length; i++){
+            if (tracker[arr[i]] !== undefined){
+                console.log(arr[i])
+                return arr[i];
+            } else {
+            tracker[arr[i]] = i
+
+            } 
+        }
+ 
+    return undefined
 
 
-const myHashTable = new HashTable(50);
-myHashTable.set('grapes', 10000);
-myHashTable.set('apples', 40);
-myHashTable.get('apples');
+}
+
+const arr =[2,5,1,3,5,7,8,9,3];
+recurringCharacter(arr);

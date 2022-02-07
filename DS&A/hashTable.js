@@ -33,7 +33,45 @@ var HashTable = /** @class */ (function () {
     };
     return HashTable;
 }());
-var myHashTable = new HashTable(50);
-myHashTable.set('grapes', 10000);
-myHashTable.set('apples', 40);
-myHashTable.get('apples');
+// const myHashTable = new HashTable(50);
+// myHashTable.set('grapes', 10000);
+// myHashTable.set('apples', 40);
+// myHashTable.get('apples');
+// ************************************************************************** RECURRING CHARACTER **************************************************************************
+//GOOGLE QUESTION
+//Gven an array = [2,5,1,2,3,5,1,2,4] , [2,5,1,4,3,5,1,4,2]
+//It should return 2
+//Given an array = [2,1,1,2,3,5,1,2,4]
+//It should return 1
+//Given an array = [2,3,4,5]
+//It should return undefined
+function recurringCharacter(arr) {
+    //     let tracker = {};
+    //     for(let i = 0; i <arr.length; i++){
+    //         if(!tracker[arr[i]]){
+    //             tracker[arr[i]] = 0;
+    //             // console.log(tracker[arr[i]])
+    //         } 
+    //        if (tracker[arr[i]] === 2){
+    //           console.log('answer', arr[i])
+    //           return arr[i];
+    //       }
+    //             tracker[arr[i]]++
+    //     }
+    //     console.log(undefined)
+    //  return undefined
+    var tracker = {};
+    for (var i = 0; i < arr.length; i++) {
+        if (tracker[arr[i]] !== undefined) {
+            console.log(arr[i]);
+            return arr[i];
+        }
+        else {
+            tracker[arr[i]] = i;
+        }
+    }
+    console.log(undefined);
+    return undefined;
+}
+var arr = [2, 5, 1, 3, 5, 7, 8, 9, 3];
+recurringCharacter(arr);
