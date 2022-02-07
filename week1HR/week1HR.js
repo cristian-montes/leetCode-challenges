@@ -319,3 +319,21 @@ matrix= [
 //     }
 //     cout << endl;
 // }
+
+//************************************************************** TOWER BREAKERS ***********************************************************************************//
+// 2 Players
+// Player 1 always moves firts, and both players always play optimally;
+// ***** RULES *****
+//Initially there are n towers
+// Each tower is of height m
+// The players move in alternating turns
+// In each turn, a player can choose a tower of height x and reduce its height to y where 1 < y < x and y evenly devides x.
+
+//*** EXPLANATION  
+// If the number of towers are even in that case the P2 will mimic all the steos if P1 and win.
+// If the number of towers are odd in that case P1 will make the height of tower to 1 and then that specific tower is out of game. So there will be even number of towers and then P1 have to mimic P2 and win. Boundary case; if the height is 1 in that case, P1 cant make a move and loses
+
+function towerBrakers(n, m){
+    if( m === 1 || n % 2 === 0) return 2
+    return 1
+}
