@@ -47,14 +47,31 @@ var LinkedList = /** @class */ (function () {
             array.push(currentNode.value);
             currentNode = currentNode.next;
         }
-        console.log(this.head);
+        console.log(array);
         return array;
     };
-    LinkedList.prototype.insert = function (index, value) {
-        if (index === 0) {
-            this.prepend(value);
-            return this.printList();
+    LinkedList.prototype.traverseToIndex = function (index) {
+        var counter = 0;
+        var currentNode = this.head;
+        while (counter !== index) {
+            currentNode = currentNode.next;
+            counter++;
         }
+        return currentNode;
+    };
+    LinkedList.prototype.insert = function (index, value) {
+        if (index >= this.length) {
+            return this.append(value);
+        }
+        var newNode = {
+            value: value,
+            next: null
+        };
+        var leader = this.traverseToIndex(index - 1);
+        var holdingPointer = leader.next;
+        leader.next = newNode;
+        newNode.next = holdingPointer;
+        this.length++;
     };
     return LinkedList;
 }());
@@ -62,5 +79,6 @@ var myLinkedList = new LinkedList(10);
 myLinkedList.append(5);
 myLinkedList.append(16);
 myLinkedList.prepend(1);
+myLinkedList.insert(2, 69);
 myLinkedList.printList();
 // console.log(myLinkedList);
