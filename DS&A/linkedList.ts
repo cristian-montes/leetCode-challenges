@@ -28,11 +28,27 @@
 // }
 // ****************************************************************************************************************************************************************************
 
+
+
+
 interface nodeHead {
     value: number;
     next: nodeHead | null;
 }
 
+
+class NewNode implements nodeHead {
+
+   value: number;
+   next: nodeHead | null;
+
+    constructor(value){
+        this.value = value;
+        this.next = null
+    }
+}
+
+// **** YOU STOPED HERE! WORKING ON REFACTORING LINKEDLIST WITH THE NEWNODE CLASS ****
 class LinkedList {
     head: nodeHead;
     tail: nodeHead;
