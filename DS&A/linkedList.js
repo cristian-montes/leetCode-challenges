@@ -8,34 +8,53 @@ var NewNode = /** @class */ (function () {
     }
     return NewNode;
 }());
+// **** YOU STOPED HERE! WORKING ON REFACTORING LINKEDLIST WITH THE NEWNODE CLASS ****
 var LinkedList = /** @class */ (function () {
     function LinkedList(value) {
-        this.head = new NewNode(value);
-        /**** CODE NOT USING EXTRAS CLAS NewNode ****/
-        // this.head = {
-        //     value: value,
-        //     next: null
-        // }
+        this.head = {
+            value: value,
+            next: null
+        };
         this.tail = this.head; // this is becuase one only have one item the head is also the tail.
         this.length = 1; // 1 is assigned becuase it is only one when created.
     }
     LinkedList.prototype.append = function (value) {
-        var newNode = this.tail.next = new NewNode(value);
-        //**** CODE NOT USING EXTRAS CLAS NewNode ****/
-        //    const newNode =  this.tail.next = { 
-        //         value: value,
-        //         next: null
-        //     }
+        var newNode = {
+            value: value,
+            next: null
+        };
+        this.tail.next = newNode;
         this.tail = newNode;
         this.length++;
+        return this;
     };
     LinkedList.prototype.prepend = function (value) {
-        this.head = {
+        var newNode = {
             value: value,
-            next: this.head
+            next: null
         };
-        this.tail;
+        newNode.next = this.head;
+        this.head = newNode;
         this.length++;
+        return this;
+    };
+    LinkedList.prototype.inser = function (index, value) {
+    };
+    LinkedList.prototype.printList = function () {
+        var array = [];
+        var currentNode = this.head;
+        while (currentNode !== null) {
+            array.push(currentNode.value);
+            currentNode = currentNode.next;
+        }
+        console.log(this.head);
+        return array;
+    };
+    LinkedList.prototype.insert = function (index, value) {
+        if (index === 0) {
+            this.prepend(value);
+            return this.printList();
+        }
     };
     return LinkedList;
 }());
@@ -43,4 +62,5 @@ var myLinkedList = new LinkedList(10);
 myLinkedList.append(5);
 myLinkedList.append(16);
 myLinkedList.prepend(1);
-console.log(myLinkedList);
+myLinkedList.printList();
+// console.log(myLinkedList);
