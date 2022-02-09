@@ -18,8 +18,18 @@ var LinkedList = /** @class */ (function () {
         this.tail = newNode;
         this.length++;
     };
+    LinkedList.prototype.prepend = function (value) {
+        this.head = {
+            value: value,
+            next: this.head
+        };
+        this.tail;
+        this.length++;
+    };
     return LinkedList;
 }());
 var myLinkedList = new LinkedList(10);
 myLinkedList.append(5);
+myLinkedList.append(16);
+myLinkedList.prepend(1);
 console.log(myLinkedList);
