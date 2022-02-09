@@ -10,7 +10,16 @@ var LinkedList = /** @class */ (function () {
         this.tail = this.head; // this is becuase one only have one item the head is also the tail.
         this.length = 1; // 1 is assigned becuase it is only one when created.
     }
+    LinkedList.prototype.append = function (value) {
+        var newNode = this.tail.next = {
+            value: value,
+            next: null
+        };
+        this.tail = newNode;
+        this.length++;
+    };
     return LinkedList;
 }());
 var myLinkedList = new LinkedList(10);
+myLinkedList.append(5);
 console.log(myLinkedList);
