@@ -116,6 +116,13 @@ class LinkedList {
 
     }
 
+    remove(index:number){
+        const leader =  this.traverseToIndex(index-1);
+        const unwantedNode = leader.next;
+        leader.next = unwantedNode.next;
+        this.length--;
+        return this.printList();
+    }
 
     insert(index:number, value:number){
 
@@ -141,12 +148,23 @@ class LinkedList {
 
 }
 
-const myLinkedList = new LinkedList(10);
-myLinkedList.append(5);
-myLinkedList.append(16);
+// const myLinkedList = new LinkedList(10);
+// myLinkedList.append(5);
+// myLinkedList.append(16);
 
-myLinkedList.prepend(1);
-myLinkedList.insert(2, 69);
-myLinkedList.printList();
+// myLinkedList.prepend(1);
+// myLinkedList.prepend(8);
+// myLinkedList.insert(2, 69);
+// myLinkedList.insert(6, 101);
+// myLinkedList.printList();
+// myLinkedList.remove(0);
 
-// console.log(myLinkedList);
+
+const theMergeTwoLists = function(l1, l2) {
+    if(!l1) return l2;
+    if(!l2) return l1;
+
+    
+}
+    
+const l1 = [1,2,4], l2 = [1,3,4];

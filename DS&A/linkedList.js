@@ -59,6 +59,13 @@ var LinkedList = /** @class */ (function () {
         }
         return currentNode;
     };
+    LinkedList.prototype.remove = function (index) {
+        var leader = this.traverseToIndex(index - 1);
+        var unwantedNode = leader.next;
+        leader.next = unwantedNode.next;
+        this.length--;
+        return this.printList();
+    };
     LinkedList.prototype.insert = function (index, value) {
         if (index >= this.length) {
             return this.append(value);
@@ -79,6 +86,9 @@ var myLinkedList = new LinkedList(10);
 myLinkedList.append(5);
 myLinkedList.append(16);
 myLinkedList.prepend(1);
+myLinkedList.prepend(8);
 myLinkedList.insert(2, 69);
-myLinkedList.printList();
+myLinkedList.insert(6, 101);
+// myLinkedList.printList();
+myLinkedList.remove(0);
 // console.log(myLinkedList);
