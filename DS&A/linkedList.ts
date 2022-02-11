@@ -163,7 +163,7 @@ class LinkedList {
 
 
 
-// ***** MERGE TWO SORTED LIST INTO ONE SORTED LIST *** //
+// ***** 21.  MERGE TWO SORTED LIST INTO ONE SORTED LIST *** //
 class ListNode {
          val: number
          next: ListNode | null
@@ -200,5 +200,21 @@ class ListNode {
     return head.next;
 
 };
+
+
+// ***** 83. REMOVE DUPLICATES FROM SORTED LIST *** //
+function deleteDuplicates(head: ListNode | null): ListNode | null {
     
+    const newHead = new ListNode();
+    let newHeadPtr = newHead;
+    let currNode = head;
+    while (currNode) {
+        if (!currNode.next || currNode.val !== currNode.next.val) {
+            newHeadPtr.next = currNode;
+            newHeadPtr = newHeadPtr.next;
+        }
+        currNode = currNode.next;
+    }
+    return newHead.next;
+};
 
