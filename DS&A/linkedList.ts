@@ -143,20 +143,16 @@ class LinkedList {
     this.length++;
 
     }
-
-
-
-
 }
 
-// const myLinkedList = new LinkedList(10);
+const myLinkedList = new LinkedList(10);
 // myLinkedList.append(5);
 // myLinkedList.append(16);
 
 // myLinkedList.prepend(1);
 // myLinkedList.prepend(8);
 // myLinkedList.insert(2, 69);
-// myLinkedList.insert(6, 101);
+// console.log(myLinkedList.insert(6, 101));
 // myLinkedList.printList();
 // myLinkedList.remove(0);
 
@@ -206,8 +202,11 @@ class ListNode {
 function deleteDuplicates(head: ListNode | null): ListNode | null {
     
     const newHead = new ListNode();
+
     let newHeadPtr = newHead;
+
     let currNode = head;
+
     while (currNode) {
         if (!currNode.next || currNode.val !== currNode.next.val) {
             newHeadPtr.next = currNode;

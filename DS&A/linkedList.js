@@ -10,7 +10,6 @@ var NewNode = /** @class */ (function () {
     }
     return NewNode;
 }());
-// **** YOU STOPED HERE! WORKING ON REFACTORING LINKEDLIST WITH THE NEWNODE CLASS ****
 var LinkedList = /** @class */ (function () {
     function LinkedList(value) {
         this.head = {
@@ -84,36 +83,58 @@ var LinkedList = /** @class */ (function () {
     };
     return LinkedList;
 }());
-// const myLinkedList = new LinkedList(10);
-// myLinkedList.append(5);
-// myLinkedList.append(16);
-// myLinkedList.prepend(1);
-// myLinkedList.prepend(8);
-// myLinkedList.insert(2, 69);
-// myLinkedList.insert(6, 101);
+var myLinkedList = new LinkedList(10);
+myLinkedList.append(5);
+myLinkedList.append(16);
+myLinkedList.prepend(1);
+myLinkedList.prepend(8);
+myLinkedList.insert(2, 69);
+console.log(myLinkedList.insert(6, 101));
 // myLinkedList.printList();
 // myLinkedList.remove(0);
-var theMergeTwoLists = function (l1, l2) {
-    //    do the iterative Way and DO NOT LOOK AT THE SOLUTION.
-    var dummy = new NewNode(-1); // -1 because we know is not valid
+// ***** 21.  MERGE TWO SORTED LIST INTO ONE SORTED LIST *** //
+var ListNode = /** @class */ (function () {
+    function ListNode(val, next) {
+        this.val = (val === undefined ? 0 : val);
+        this.next = (next === undefined ? null : next);
+    }
+    return ListNode;
+}());
+function mergeTwoLists(list1, list2) {
+    var dummy = new ListNode(0); // -1 because we know is not valid
     var head = dummy;
-    while (l1 !== null && l2 !== null) {
-        if (l1.val < l2.val) {
-            dummy.next = l1;
-            l1 = l1.next;
+    while (list1 !== null && list2 !== null) {
+        if (list1.val < list2.val) {
+            dummy.next = list1;
+            list1 = list1.next;
         }
         else {
-            dummy.next = l2;
-            l2 = l2.next;
+            dummy.next = list2;
+            list2 = list2.next;
         }
+        dummy = dummy.next;
     }
-    if (l1 !== null) {
-        dummy.next = l1;
+    if (list1 === null) {
+        dummy.next = list2;
     }
     else {
-        dummy.next = l2;
+        dummy.next = list1;
     }
-    return head;
-};
-var l1 = [1, 2, 4], l2 = [1, 3, 4];
-console.log(theMergeTwoLists(l1, l2));
+    return head.next;
+}
+;
+// ***** 83. REMOVE DUPLICATES FROM SORTED LIST *** //
+function deleteDuplicates(head) {
+    var newHead = new ListNode();
+    var newHeadPtr = newHead;
+    var currNode = head;
+    while (currNode) {
+        if (!currNode.next || currNode.val !== currNode.next.val) {
+            newHeadPtr.next = currNode;
+            newHeadPtr = newHeadPtr.next;
+        }
+        currNode = currNode.next;
+    }
+    return newHead.next;
+}
+;
