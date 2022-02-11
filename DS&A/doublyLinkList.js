@@ -1,11 +1,11 @@
 //**  Doubly Linked Lists **/
-var NewNode = /** @class */ (function () {
-    function NewNode(value) {
+var TheNewNode = /** @class */ (function () {
+    function TheNewNode(value) {
         this.value = value;
         this.next = null,
             this.prev = null;
     }
-    return NewNode;
+    return TheNewNode;
 }());
 var DoublyLinkedList = /** @class */ (function () {
     function DoublyLinkedList(value) {
@@ -74,7 +74,6 @@ var DoublyLinkedList = /** @class */ (function () {
         var leader = this.traverseToIndex(index - 1);
         var follower = leader.next;
         follower.prev = leader;
-        //  const unwantedNode = leader.next;
         leader.next = follower.next;
         this.length--;
         return this.printList();

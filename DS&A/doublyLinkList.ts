@@ -8,6 +8,8 @@
 // EX DLL = 1->3->5->null
 //          1<-3<-5<-null
 
+// DLL PROS : can be iterated from the back and the front.
+
 interface theNode {
     value: number;
     next: theNode | null;
@@ -15,7 +17,7 @@ interface theNode {
 }
 
 
-class NewNode implements theNode {
+class TheNewNode implements theNode {
 
     value: number;
     next: theNode | null;

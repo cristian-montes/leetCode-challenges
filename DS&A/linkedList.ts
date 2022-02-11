@@ -2,7 +2,7 @@
 //https://visualgo.net/en/list --> visual representation of how linked list work
 // traversing through a Linked List is slower than iterating through an array eventhough they both have O(n) time complexity, but this is because in an array data is organized right next eachother in memory, and in a Linked List the data is all scartted around in memory.
 
-import { WatchDirectoryFlags } from "typescript";
+// import { WatchDirectoryFlags } from "typescript";
 
 //TIME COMPLEXITY OF METHODS
 // prepend O(1) -> this is when you add a node before the head.
@@ -10,6 +10,14 @@ import { WatchDirectoryFlags } from "typescript";
 // lookup  O(N) -> transverse => when look for an specific node in memory.
 // Insert O(n) -> this when you transverse in memory to look for the node where the new is going to go... either before or after.
 // Delete O(n) -> need to transverse in memory to look for the node to be deleted.
+
+
+// SLL PROS: simple implementation, requires lesser memeory, because of it operations like delete and insert is faster since we do not have to move the prev property.
+
+//SLL CONS: it cannot be iterated backwards.
+// Use it when memory is very expensive and you want to do fast insertion and delition.
+
+
 
 
 // EX 1    10-->5-->16-->null
@@ -117,6 +125,29 @@ class LinkedList {
 
     }
 
+    reverse(){
+        // val:1    val:2      val:3
+        // next:2   next:3     next:null
+        // 1   ->   2 ->       3     ->    null
+
+        if(!this.head.next) return this.head;
+
+        let currentNode = this.head;
+        this.tail = this.head;
+        let second = currentNode.next;
+
+        while(second){
+            const temp = second.next;
+            second.next = currentNode;
+            currentNode = second;
+            second = temp;
+        }
+        this.head.next = null;
+        this.head = currentNode;
+        return this.printList();
+        
+    }
+        
     remove(index:number){
         const leader =  this.traverseToIndex(index-1);
         const unwantedNode = leader.next;
@@ -143,6 +174,8 @@ class LinkedList {
     this.length++;
 
     }
+
+    
 }
 
 const myLinkedList = new LinkedList(10);
