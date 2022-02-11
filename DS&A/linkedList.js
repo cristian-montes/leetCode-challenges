@@ -1,6 +1,8 @@
+"use strict";
 //Javascript does not come with linkedlist built in.
 //https://visualgo.net/en/list --> visual representation of how linked list work
 // traversing through a Linked List is slower than iterating through an array eventhough they both have O(n) time complexity, but this is because in an array data is organized right next eachother in memory, and in a Linked List the data is all scartted around in memory.
+exports.__esModule = true;
 var NewNode = /** @class */ (function () {
     function NewNode(value) {
         this.value = value;
@@ -82,13 +84,36 @@ var LinkedList = /** @class */ (function () {
     };
     return LinkedList;
 }());
-var myLinkedList = new LinkedList(10);
-myLinkedList.append(5);
-myLinkedList.append(16);
-myLinkedList.prepend(1);
-myLinkedList.prepend(8);
-myLinkedList.insert(2, 69);
-myLinkedList.insert(6, 101);
+// const myLinkedList = new LinkedList(10);
+// myLinkedList.append(5);
+// myLinkedList.append(16);
+// myLinkedList.prepend(1);
+// myLinkedList.prepend(8);
+// myLinkedList.insert(2, 69);
+// myLinkedList.insert(6, 101);
 // myLinkedList.printList();
-myLinkedList.remove(0);
-// console.log(myLinkedList);
+// myLinkedList.remove(0);
+var theMergeTwoLists = function (l1, l2) {
+    //    do the iterative Way and DO NOT LOOK AT THE SOLUTION.
+    var dummy = new NewNode(-1); // -1 because we know is not valid
+    var head = dummy;
+    while (l1 !== null && l2 !== null) {
+        if (l1.val < l2.val) {
+            dummy.next = l1;
+            l1 = l1.next;
+        }
+        else {
+            dummy.next = l2;
+            l2 = l2.next;
+        }
+    }
+    if (l1 !== null) {
+        dummy.next = l1;
+    }
+    else {
+        dummy.next = l2;
+    }
+    return head;
+};
+var l1 = [1, 2, 4], l2 = [1, 3, 4];
+console.log(theMergeTwoLists(l1, l2));

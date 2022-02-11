@@ -2,6 +2,8 @@
 //https://visualgo.net/en/list --> visual representation of how linked list work
 // traversing through a Linked List is slower than iterating through an array eventhough they both have O(n) time complexity, but this is because in an array data is organized right next eachother in memory, and in a Linked List the data is all scartted around in memory.
 
+import { WatchDirectoryFlags } from "typescript";
+
 //TIME COMPLEXITY OF METHODS
 // prepend O(1) -> this is when you add a node before the head.
 // append  O(1) -> this when you add a node after the tail/
@@ -48,7 +50,6 @@ class NewNode implements nodeHead {
     }
 }
 
-// **** YOU STOPED HERE! WORKING ON REFACTORING LINKEDLIST WITH THE NEWNODE CLASS ****
 class LinkedList {
     head: nodeHead;
     tail: nodeHead;
@@ -160,11 +161,44 @@ class LinkedList {
 // myLinkedList.remove(0);
 
 
-const theMergeTwoLists = function(l1, l2) {
-    if(!l1) return l2;
-    if(!l2) return l1;
 
+
+// ***** MERGE TWO SORTED LIST INTO ONE SORTED LIST *** //
+class ListNode {
+         val: number
+         next: ListNode | null
+
+         constructor(val?: number, next?: ListNode | null) {
+             this.val = (val===undefined ? 0 : val)
+             this.next = (next===undefined ? null : next)
+         }
+    }
+
+ function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode | null {
+    let dummy  = new ListNode(0)  // -1 because we know is not valid
+    let head = dummy;
+
+    while(list1 !== null && list2 !== null){
+        if(list1.val < list2.val){
+            dummy.next =  list1;
+            list1 = list1.next;
+        } else {
+            dummy.next = list2;
+            list2 = list2.next;
+        }
+        
+        dummy = dummy.next;
+    }
+
+    if(list1 === null){
+        dummy.next = list2;
+
+    } else {
+        dummy.next = list1;
+    }
+
+    return head.next;
+
+};
     
-}
-    
-const l1 = [1,2,4], l2 = [1,3,4];
+
