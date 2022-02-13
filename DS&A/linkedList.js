@@ -1,15 +1,14 @@
-"use strict";
 //Javascript does not come with linkedlist built in.
 //https://visualgo.net/en/list --> visual representation of how linked list work
 // traversing through a Linked List is slower than iterating through an array eventhough they both have O(n) time complexity, but this is because in an array data is organized right next eachother in memory, and in a Linked List the data is all scartted around in memory.
-exports.__esModule = true;
-var NewNode = /** @class */ (function () {
-    function NewNode(value) {
-        this.value = value;
-        this.next = null;
-    }
-    return NewNode;
-}());
+// class NewNode implements nodeHead {
+//    value: number;
+//    next: nodeHead | null;
+//     constructor(value){
+//         this.value = value;
+//         this.next = null
+//     }
+// }
 var LinkedList = /** @class */ (function () {
     function LinkedList(value) {
         this.head = {
@@ -60,6 +59,25 @@ var LinkedList = /** @class */ (function () {
         }
         return currentNode;
     };
+    LinkedList.prototype.reverse = function () {
+        // val:1    val:2      val:3
+        // next:2   next:3     next:null
+        // 1   ->   2 ->       3     ->    null
+        if (!this.head.next)
+            return this.head;
+        var currentNode = this.head;
+        this.tail = this.head;
+        var second = currentNode.next;
+        while (second) {
+            var temp = second.next;
+            second.next = currentNode;
+            currentNode = second;
+            second = temp;
+        }
+        this.head.next = null;
+        this.head = currentNode;
+        return this.printList();
+    };
     LinkedList.prototype.remove = function (index) {
         var leader = this.traverseToIndex(index - 1);
         var unwantedNode = leader.next;
@@ -84,12 +102,12 @@ var LinkedList = /** @class */ (function () {
     return LinkedList;
 }());
 var myLinkedList = new LinkedList(10);
-myLinkedList.append(5);
-myLinkedList.append(16);
-myLinkedList.prepend(1);
-myLinkedList.prepend(8);
-myLinkedList.insert(2, 69);
-console.log(myLinkedList.insert(6, 101));
+// myLinkedList.append(5);
+// myLinkedList.append(16);
+// myLinkedList.prepend(1);
+// myLinkedList.prepend(8);
+// myLinkedList.insert(2, 69);
+// console.log(myLinkedList.insert(6, 101));
 // myLinkedList.printList();
 // myLinkedList.remove(0);
 // ***** 21.  MERGE TWO SORTED LIST INTO ONE SORTED LIST *** //
@@ -136,5 +154,28 @@ function deleteDuplicates(head) {
         currNode = currNode.next;
     }
     return newHead.next;
+}
+;
+// ***** 160. INTERSECTION OF TWO LINKEDLIST *** //
+function getIntersectionNode(headA, headB) {
+    if (headA === null || headB === null)
+        return null;
+    var firstHead = headA;
+    var secondHead = headB;
+    while (firstHead !== secondHead) {
+        if (firstHead === null) { // if it finds the null value then it means it is the end of the list and it is grabing the headB length and values to compare to the other head
+            firstHead = headB;
+        }
+        else {
+            firstHead = firstHead.next;
+        }
+        if (secondHead === null) { // same thing here at one point the two list will be the same length with the same values to find the intersection
+            secondHead = headA;
+        }
+        else {
+            secondHead = secondHead.next;
+        }
+    }
+    return firstHead;
 }
 ;

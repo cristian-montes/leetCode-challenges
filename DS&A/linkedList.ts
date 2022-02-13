@@ -47,16 +47,16 @@ interface nodeHead {
 }
 
 
-class NewNode implements nodeHead {
+// class NewNode implements nodeHead {
 
-   value: number;
-   next: nodeHead | null;
+//    value: number;
+//    next: nodeHead | null;
 
-    constructor(value){
-        this.value = value;
-        this.next = null
-    }
-}
+//     constructor(value){
+//         this.value = value;
+//         this.next = null
+//     }
+// }
 
 class LinkedList {
     head: nodeHead;
@@ -208,7 +208,8 @@ class ListNode {
     let head = dummy;
 
     while(list1 !== null && list2 !== null){
-        if(list1.val < list2.val){
+
+        if(list1.val < list2.val){   
             dummy.next =  list1;
             list1 = list1.next;
         } else {
@@ -250,3 +251,29 @@ function deleteDuplicates(head: ListNode | null): ListNode | null {
     return newHead.next;
 };
 
+// ***** 160. INTERSECTION OF TWO LINKEDLIST *** //
+
+function getIntersectionNode(headA: ListNode | null, headB: ListNode | null): ListNode | null {
+    if(headA === null || headB === null) return null;
+
+  let firstHead = headA;
+  let secondHead = headB;
+
+   while(firstHead !== secondHead){
+
+       if(firstHead === null){ // if it finds the null value then it means it is the end of the list and it is grabing the headB length and values to compare to the other head
+           firstHead = headB;
+       } else {
+           firstHead =  firstHead.next;
+       }
+
+       if(secondHead === null){ // same thing here at one point the two list will be the same length with the same values to find the intersection
+           secondHead = headA;
+       } else{
+           secondHead = secondHead.next;
+       }
+   }
+
+   return firstHead; 
+
+};
