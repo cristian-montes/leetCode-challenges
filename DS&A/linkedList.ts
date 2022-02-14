@@ -47,16 +47,8 @@ interface nodeHead {
 }
 
 
-// class NewNode implements nodeHead {
-
-//    value: number;
-//    next: nodeHead | null;
-
-//     constructor(value){
-//         this.value = value;
-//         this.next = null
-//     }
-// }
+// 1=   1;'
+76
 
 class LinkedList {
     head: nodeHead;
