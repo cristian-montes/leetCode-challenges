@@ -47,9 +47,6 @@ interface nodeHead {
 }
 
 
-// 1=   1;'
-76
-
 class LinkedList {
     head: nodeHead;
     tail: nodeHead;
