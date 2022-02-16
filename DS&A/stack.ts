@@ -41,7 +41,7 @@ class Stack {
 
 
     peek(){
-        
+        console.log(this.top?.val)
         return this.top?.val;
     }
 
@@ -51,29 +51,45 @@ class Stack {
             this.top = stackNode;
             this.bottom = stackNode;
             } else {
-
                 const holdingOldNode = this.top;
                 this.top = stackNode;
                 this.top.next = holdingOldNode;
             }
         this.length++
-        // console.log(this)
+        console.log(this)
         return this;
     }
 
     pop(){
+        if(!this.top){
+            return null;
+        } if(this.top === this.bottom) {
+            this.bottom = null;
+        }
+            this.top = this.top.next;
+            this.length--;
+            return this;
 
     }
 
-    //isEmpty
+    isEmpty(){
+        if(!this.length){
+            return null
+        }
+
+        return this.length
+    }
 }
 
 const myStack = new Stack();
-myStack.push(1);
-// myStack.push(25);
-// myStack.push(69);
-// myStack.push(10);
+console.log(myStack.isEmpty())
+myStack.push('google');
+myStack.push('neflix');
+myStack.push(69);
+myStack.push(10);
 myStack.push('Discord');
+myStack.push('Walmart');
+myStack.pop()
 myStack.peek()
+console.log(myStack.isEmpty())
 
-// console.log(myStack)

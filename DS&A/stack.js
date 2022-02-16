@@ -41,18 +41,36 @@ var Stack = /** @class */ (function () {
             this.top.next = holdingOldNode;
         }
         this.length++;
-        // console.log(this)
+        console.log(this);
         return this;
     };
     Stack.prototype.pop = function () {
+        if (!this.top) {
+            return null;
+        }
+        if (this.top === this.bottom) {
+            this.bottom = null;
+        }
+        this.top = this.top.next;
+        this.length--;
+        return this;
+    };
+    Stack.prototype.isEmpty = function () {
+        if (!this.length) {
+            return null;
+        }
+        return this.length;
     };
     return Stack;
 }());
 var myStack = new Stack();
-myStack.push(1);
-// myStack.push(25);
-// myStack.push(69);
-// myStack.push(10);
+console.log(myStack.isEmpty());
+myStack.push('google');
+myStack.push('neflix');
+myStack.push(69);
+myStack.push(10);
 myStack.push('Discord');
+myStack.push('Walmart');
+myStack.pop();
 myStack.peek();
-// console.log(myStack)
+console.log(myStack.isEmpty());
