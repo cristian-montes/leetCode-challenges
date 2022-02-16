@@ -89,11 +89,15 @@ var theStack = /** @class */ (function () {
         this.stack.pop();
     };
     theStack.prototype.isEmpty = function () {
+        if (!this.stack.length) {
+            return console.log('the stack is empty');
+        }
+        return this.stack.length;
     };
     return theStack;
 }());
 var myOtherStack = new theStack();
-// console.log(myOtherStack.isEmpty())
+console.log(myOtherStack.isEmpty());
 myOtherStack.push('google');
 myOtherStack.push('neflix');
 myOtherStack.push(69);

@@ -117,12 +117,15 @@ class theStack {
     }
 
     isEmpty(){
-
+        if(!this.stack.length){
+            return console.log('the stack is empty')
+        }
+        return this.stack.length;
     }
 }
 
 const myOtherStack = new theStack();
-// console.log(myOtherStack.isEmpty())
+console.log(myOtherStack.isEmpty())
 myOtherStack.push('google');
 myOtherStack.push('neflix');
 myOtherStack.push(69);
