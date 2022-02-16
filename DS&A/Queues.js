@@ -33,13 +33,18 @@ var Queue = /** @class */ (function () {
             this.last = queueNode;
         }
         else {
-            this.first.next = this.last;
+            // this.first!.next = this.last;
             this.last.next = queueNode;
             this.last = queueNode;
         }
         this.lenght++;
     };
     Queue.prototype.dequeue = function () {
+        if (!this.first && !this.last)
+            return null;
+        // const holdingFirstInLine = this.first;
+        this.first = this.first.next;
+        this.lenght--;
     };
     return Queue;
 }());
@@ -49,4 +54,6 @@ myQueue.enqueue(2);
 myQueue.enqueue(34);
 myQueue.enqueue(100);
 myQueue.enqueue(3230);
+myQueue.enqueue('thiss');
+myQueue.dequeue();
 console.log(myQueue);

@@ -44,15 +44,24 @@ class Queue {
             this.first = queueNode
             this.last = queueNode;
         } else {
-            this.first!.next = this.last;
+            // this.first!.next = this.last;
             this.last!.next = queueNode
             this.last = queueNode;
         }
 
         this.lenght++;
+        return this;
     }
 
     dequeue(){
+        if(!this.first && !this.last) return null;
+
+        if(this.first === this.last){
+            this.last = null;
+        }
+        this.first = this.first!.next;
+        this.lenght--
+        return this;
 
     }
 }
@@ -64,4 +73,6 @@ myQueue.enqueue(2);
 myQueue.enqueue(34);
 myQueue.enqueue(100);
 myQueue.enqueue(3230);
+myQueue.enqueue('thiss');
+myQueue.dequeue()
 console.log(myQueue);
