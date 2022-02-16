@@ -63,14 +63,43 @@ var Stack = /** @class */ (function () {
     };
     return Stack;
 }());
-var myStack = new Stack();
-console.log(myStack.isEmpty());
-myStack.push('google');
-myStack.push('neflix');
-myStack.push(69);
-myStack.push(10);
-myStack.push('Discord');
-myStack.push('Walmart');
-myStack.pop();
-myStack.peek();
-console.log(myStack.isEmpty());
+// const myStack = new Stack();
+// console.log(myStack.isEmpty())
+// myStack.push('google');
+// myStack.push('neflix');
+// myStack.push(69);
+// myStack.push(10);
+// myStack.push('Discord');
+// myStack.push('Walmart');
+// myStack.pop()
+// myStack.peek()
+// console.log(myStack.isEmpty())
+var theStack = /** @class */ (function () {
+    function theStack() {
+        this.stack = ['hola', 'carmen'];
+    }
+    theStack.prototype.peek = function () {
+        console.log(this.stack[this.stack.length - 1]);
+        return this.stack[this.stack.length - 1];
+    };
+    theStack.prototype.push = function (value) {
+        // this.stack.push(value);
+    };
+    theStack.prototype.pop = function () {
+    };
+    theStack.prototype.isEmpty = function () {
+    };
+    return theStack;
+}());
+var myOtherStack = new theStack();
+// console.log(myOtherStack.isEmpty())
+// myOtherStack.push('google');
+// myOtherStack.push('neflix');
+// myOtherStack.push(69);
+// myOtherStack.push(10);
+// myOtherStack.push('Discord');
+// myOtherStack.push('Walmart');
+// myOtherStack.pop()
+myOtherStack.peek();
+// console.log(myOtherStack.isEmpty())
+// console.log(myOtherStack)

@@ -81,15 +81,59 @@ class Stack {
     }
 }
 
-const myStack = new Stack();
-console.log(myStack.isEmpty())
-myStack.push('google');
-myStack.push('neflix');
-myStack.push(69);
-myStack.push(10);
-myStack.push('Discord');
-myStack.push('Walmart');
-myStack.pop()
-myStack.peek()
-console.log(myStack.isEmpty())
+// const myStack = new Stack();
+// console.log(myStack.isEmpty())
+// myStack.push('google');
+// myStack.push('neflix');
+// myStack.push(69);
+// myStack.push(10);
+// myStack.push('Discord');
+// myStack.push('Walmart');
+// myStack.pop()
+// myStack.peek()
+// console.log(myStack.isEmpty())
+
+
+
+class theStack {
+    stack: number[] | string[];
+    
+    constructor(){
+        this.stack = [];
+    }
+
+
+    peek(){
+        console.log(this.stack[this.stack.length - 1])
+        return this.stack[this.stack.length - 1]
+       
+    }
+
+    push(value: number | string){
+        // this.stack.push(value);
+    }
+
+    pop(){
+   
+    }
+
+    isEmpty(){
+
+    }
+}
+
+const myOtherStack = new theStack();
+// console.log(myOtherStack.isEmpty())
+// myOtherStack.push('google');
+// myOtherStack.push('neflix');
+// myOtherStack.push(69);
+// myOtherStack.push(10);
+// myOtherStack.push('Discord');
+// myOtherStack.push('Walmart');
+// myOtherStack.pop()
+myOtherStack.peek()
+// console.log(myOtherStack.isEmpty())
+
+// console.log(myOtherStack)
+
 
