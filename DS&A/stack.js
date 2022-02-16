@@ -76,16 +76,17 @@ var Stack = /** @class */ (function () {
 // console.log(myStack.isEmpty())
 var theStack = /** @class */ (function () {
     function theStack() {
-        this.stack = ['hola', 'carmen'];
+        this.stack = [];
     }
     theStack.prototype.peek = function () {
         console.log(this.stack[this.stack.length - 1]);
         return this.stack[this.stack.length - 1];
     };
     theStack.prototype.push = function (value) {
-        // this.stack.push(value);
+        this.stack.push(value);
     };
     theStack.prototype.pop = function () {
+        this.stack.pop();
     };
     theStack.prototype.isEmpty = function () {
     };
@@ -93,13 +94,13 @@ var theStack = /** @class */ (function () {
 }());
 var myOtherStack = new theStack();
 // console.log(myOtherStack.isEmpty())
-// myOtherStack.push('google');
-// myOtherStack.push('neflix');
-// myOtherStack.push(69);
-// myOtherStack.push(10);
-// myOtherStack.push('Discord');
-// myOtherStack.push('Walmart');
-// myOtherStack.pop()
-myOtherStack.peek();
+myOtherStack.push('google');
+myOtherStack.push('neflix');
+myOtherStack.push(69);
+myOtherStack.push(10);
+myOtherStack.push('Discord');
+myOtherStack.push('Walmart');
+myOtherStack.pop();
+// myOtherStack.peek()
 // console.log(myOtherStack.isEmpty())
-// console.log(myOtherStack)
+console.log(myOtherStack);

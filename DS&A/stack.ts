@@ -96,12 +96,11 @@ class Stack {
 
 
 class theStack {
-    stack: number[] | string[];
+    stack: any[];
     
     constructor(){
         this.stack = [];
     }
-
 
     peek(){
         console.log(this.stack[this.stack.length - 1])
@@ -110,11 +109,11 @@ class theStack {
     }
 
     push(value: number | string){
-        // this.stack.push(value);
+        this.stack.push(value)
     }
 
     pop(){
-   
+        this.stack.pop()
     }
 
     isEmpty(){
@@ -124,16 +123,16 @@ class theStack {
 
 const myOtherStack = new theStack();
 // console.log(myOtherStack.isEmpty())
-// myOtherStack.push('google');
-// myOtherStack.push('neflix');
-// myOtherStack.push(69);
-// myOtherStack.push(10);
-// myOtherStack.push('Discord');
-// myOtherStack.push('Walmart');
-// myOtherStack.pop()
-myOtherStack.peek()
+myOtherStack.push('google');
+myOtherStack.push('neflix');
+myOtherStack.push(69);
+myOtherStack.push(10);
+myOtherStack.push('Discord');
+myOtherStack.push('Walmart');
+myOtherStack.pop()
+// myOtherStack.peek()
 // console.log(myOtherStack.isEmpty())
 
-// console.log(myOtherStack)
+console.log(myOtherStack)
 
 
