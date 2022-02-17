@@ -95,9 +95,37 @@ class CrazyQueue {
             this.last.push(this.first.pop())
         }
         this.last.push(value);
+        console.log('last',this.last);
+        // console.log('first',this.first);
+        return this;
+    }
+    dequeue(){
+        const lenght = this.last.length;
+
+        for(let i = 0; i < lenght; i++){
+            this.first.push(this.last.pop());
+        }
+        this.first.pop();
+        console.log('last',this.last);
+        console.log('first',this.first);
         return this;
     }
 
+    peek(){
 
+    }
 
 }
+
+const myCrazyQueue = new CrazyQueue();
+myCrazyQueue.enqueue(5)
+myCrazyQueue.enqueue(7)
+myCrazyQueue.enqueue(9)
+myCrazyQueue.enqueue(11)
+myCrazyQueue.enqueue(69);
+myCrazyQueue.dequeue();
+myCrazyQueue.enqueue(70);
+myCrazyQueue.enqueue(71);
+myCrazyQueue.enqueue(72);
+myCrazyQueue.dequeue();
+myCrazyQueue.dequeue();
