@@ -66,13 +66,38 @@ class Queue {
     }
 }
 
-const myQueue = new Queue();
+// const myQueue = new Queue();
 
-myQueue.enqueue(1);
-myQueue.enqueue(2);
-myQueue.enqueue(34);
-myQueue.enqueue(100);
-myQueue.enqueue(3230);
-myQueue.enqueue('thiss');
-myQueue.dequeue()
-console.log(myQueue);
+// myQueue.enqueue(1);
+// myQueue.enqueue(2);
+// myQueue.enqueue(34);
+// myQueue.enqueue(100);
+// myQueue.enqueue(3230);
+// myQueue.enqueue('thiss');
+// myQueue.dequeue()
+// console.log(myQueue);
+
+
+class CrazyQueue {
+    first: any[]
+    last: any[] 
+
+    constructor(){
+        this.first = [];
+        this.last = [];
+    }
+
+
+    enqueue(value: number | string){
+        const length = this.first.length;
+
+        for(let i = 0; i < length; i++){
+            this.last.push(this.first.pop())
+        }
+        this.last.push(value);
+        return this;
+    }
+
+
+
+}

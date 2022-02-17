@@ -38,22 +38,41 @@ var Queue = /** @class */ (function () {
             this.last = queueNode;
         }
         this.lenght++;
+        return this;
     };
     Queue.prototype.dequeue = function () {
         if (!this.first && !this.last)
             return null;
-        // const holdingFirstInLine = this.first;
+        if (this.first === this.last) {
+            this.last = null;
+        }
         this.first = this.first.next;
         this.lenght--;
+        return this;
     };
     return Queue;
 }());
-var myQueue = new Queue();
-myQueue.enqueue(1);
-myQueue.enqueue(2);
-myQueue.enqueue(34);
-myQueue.enqueue(100);
-myQueue.enqueue(3230);
-myQueue.enqueue('thiss');
-myQueue.dequeue();
-console.log(myQueue);
+// const myQueue = new Queue();
+// myQueue.enqueue(1);
+// myQueue.enqueue(2);
+// myQueue.enqueue(34);
+// myQueue.enqueue(100);
+// myQueue.enqueue(3230);
+// myQueue.enqueue('thiss');
+// myQueue.dequeue()
+// console.log(myQueue);
+var CrazyQueue = /** @class */ (function () {
+    function CrazyQueue() {
+        this.first = [];
+        this.last = [];
+    }
+    CrazyQueue.prototype.enqueue = function (value) {
+        var length = this.first.length;
+        for (var i = 0; i < length; i++) {
+            this.last.push(this.first.pop());
+        }
+        this.last.push(value);
+        return this;
+    };
+    return CrazyQueue;
+}());
