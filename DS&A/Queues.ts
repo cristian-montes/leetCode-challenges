@@ -112,7 +112,12 @@ class CrazyQueue {
     }
 
     peek(){
-
+        if(this.first.length > 0){
+            // console.log('FIRST',this.first[this.first.length - 1])
+            return this.first[this.first.length - 1]
+        } 
+        // console.log('LAST', this.last[0])
+        return this.last[0];
     }
 
 }
@@ -125,7 +130,8 @@ myCrazyQueue.enqueue(11)
 myCrazyQueue.enqueue(69);
 myCrazyQueue.dequeue();
 myCrazyQueue.enqueue(70);
-myCrazyQueue.enqueue(71);
+myCrazyQueue.enqueue(71); 
 myCrazyQueue.enqueue(72);
 myCrazyQueue.dequeue();
 myCrazyQueue.dequeue();
+myCrazyQueue.peek()
