@@ -1,14 +1,6 @@
 //Javascript does not come with linkedlist built in.
 //https://visualgo.net/en/list --> visual representation of how linked list work
 // traversing through a Linked List is slower than iterating through an array eventhough they both have O(n) time complexity, but this is because in an array data is organized right next eachother in memory, and in a Linked List the data is all scartted around in memory.
-// class NewNode implements nodeHead {
-//    value: number;
-//    next: nodeHead | null;
-//     constructor(value){
-//         this.value = value;
-//         this.next = null
-//     }
-// }
 var LinkedList = /** @class */ (function () {
     function LinkedList(value) {
         this.head = {
@@ -177,5 +169,21 @@ function getIntersectionNode(headA, headB) {
         }
     }
     return firstHead;
+}
+;
+// ***** 141 LINKED LIST CYCLE *** //
+function hasCycle(head) {
+    if (head === null)
+        return false;
+    var slow = head;
+    var fast = head.next;
+    while (slow !== fast) {
+        if (fast === null || fast.next === null) {
+            return false;
+        }
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    return true;
 }
 ;

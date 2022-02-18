@@ -96,7 +96,7 @@ class LinkedList {
         let currentNode =  this.head;
         while(currentNode !== null){
             array.push(currentNode.value);
-            currentNode = currentNode.next;
+            currentNode = currentNode.next!;
         }
         console.log(array)
         return array
@@ -107,7 +107,7 @@ class LinkedList {
         let currentNode = this.head;
 
         while(counter !== index){
-            currentNode = currentNode.next;
+            currentNode = currentNode.next!;
             counter++; 
         }
         return currentNode;
@@ -254,16 +254,34 @@ function getIntersectionNode(headA: ListNode | null, headB: ListNode | null): Li
        if(firstHead === null){ // if it finds the null value then it means it is the end of the list and it is grabing the headB length and values to compare to the other head
            firstHead = headB;
        } else {
-           firstHead =  firstHead.next;
+           firstHead =  firstHead.next!;
        }
 
        if(secondHead === null){ // same thing here at one point the two list will be the same length with the same values to find the intersection
            secondHead = headA;
        } else{
-           secondHead = secondHead.next;
+           secondHead = secondHead.next!;
        }
    }
 
    return firstHead; 
 
+};
+
+// ***** 141 LINKED LIST CYCLE *** //
+
+function hasCycle(head: ListNode | null): boolean {
+    if(head === null) return false;
+
+    let slow = head;
+    let fast  =  head.next;
+
+    while(slow !== fast){
+        if(fast === null || fast.next === null){
+            return false;
+        }
+        slow = slow.next!;
+        fast = fast.next.next
+    }
+    return true;
 };
