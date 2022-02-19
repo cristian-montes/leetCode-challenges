@@ -285,3 +285,39 @@ function hasCycle(head: ListNode | null): boolean {
     }
     return true;
 };
+
+// ***** REMOVE LIKNED LIST ELEMENTS *** //
+function removeElements(head: ListNode | null, val: number): ListNode | null {
+
+    while( head !== null && head.val === val){
+        head =  head.next
+    }
+
+   let newHead = head;
+    let previousNode:null | ListNode = new ListNode(0);
+    
+    while(newHead !== null){
+        if(newHead.val === val){
+            previousNode!.next =  newHead.next;
+            // let follower:null | ListNode = null;
+        }
+
+        previousNode = newHead;
+        newHead = newHead.next
+
+    }
+
+    return head;
+};
+
+// traverseToIndex(index:number){
+//     let counter = 0;
+//     let currentNode = this.head;
+
+//     while(counter !== index){
+//         currentNode = currentNode.next!;
+//         counter++; 
+//     }
+//     return currentNode;
+
+// }
