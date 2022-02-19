@@ -293,17 +293,15 @@ function removeElements(head: ListNode | null, val: number): ListNode | null {
         head =  head.next
     }
 
-   let newHead = head;
-    let previousNode:null | ListNode = new ListNode(0);
-    
-    while(newHead !== null){
-        if(newHead.val === val){
-            previousNode!.next =  newHead.next;
-            // let follower:null | ListNode = null;
+    let newHead = head;
+    while(newHead !== null && newHead.next !== null){
+        if(newHead.next.val === val ){
+
+           newHead.next = newHead.next.next;
+        } else{
+            newHead = newHead.next;
         }
 
-        previousNode = newHead;
-        newHead = newHead.next
 
     }
 
