@@ -310,19 +310,26 @@ function removeElements(head: ListNode | null, val: number): ListNode | null {
 
 
 // ***** 206 REVERSE LINKED LIST ***** //
+//
 function reverseList(head: ListNode | null): ListNode | null {
 
     let currentNode = head;
     let previous = null;
 
     while( currentNode !== null){ 
-        let temp =  currentNode.next; 
-        currentNode.next = previous; 
-        previous = currentNode; 
-        currentNode = temp; 
+        let temp =  currentNode.next;  // hold this value to make the loop moving
+        currentNode.next = previous; // sets the next backwards starting on null and followed by the current node
+        previous = currentNode; // then here previous is set to the new previous for the next iteration
+        currentNode = temp; // we use the temp value to make the loop iterate 
     }
-     return previous;
+     return previous;  // return the new head call node
 };
 
+// ***** 237 DELETE NODE IN A LINKED LIST ***** //
+// since the head isnt given, all it is needs to be done is set the given node equal to the proceding value. NO NEED FOR LOOPING!
+function deleteNode(root: ListNode | null): void {
+    root!.val = root!.next!.val;
+    root!.next = root!.next!.next;
+};
 // val:1    val:2    val:3    val:4    val:5  
 // next:2   next:3   next:4   next:5   next:null
