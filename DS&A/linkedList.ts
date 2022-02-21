@@ -126,8 +126,8 @@ class LinkedList {
         let second = currentNode.next;
 
         while(second){
-            const temp = second.next;
-            second.next = currentNode;
+            const temp = second.next; //val:3 , next: null
+            second.next = currentNode; // val:2, next: { val:3, next: null}
             currentNode = second;
             second = temp;
         }
@@ -286,7 +286,7 @@ function hasCycle(head: ListNode | null): boolean {
     return true;
 };
 
-// ***** REMOVE LIKNED LIST ELEMENTS *** //
+// ***** 203 REMOVE LIKNED LIST ELEMENTS *** //
 function removeElements(head: ListNode | null, val: number): ListNode | null {
 
     while( head !== null && head.val === val){
@@ -308,14 +308,21 @@ function removeElements(head: ListNode | null, val: number): ListNode | null {
     return head;
 };
 
-// traverseToIndex(index:number){
-//     let counter = 0;
-//     let currentNode = this.head;
 
-//     while(counter !== index){
-//         currentNode = currentNode.next!;
-//         counter++; 
-//     }
-//     return currentNode;
+// ***** 206 REVERSE LINKED LIST ***** //
+function reverseList(head: ListNode | null): ListNode | null {
 
-// }
+    let currentNode = head;
+    let previous = null;
+
+    while( currentNode !== null){ 
+        let temp =  currentNode.next; 
+        currentNode.next = previous; 
+        previous = currentNode; 
+        currentNode = temp; 
+    }
+     return previous;
+};
+
+// val:1    val:2    val:3    val:4    val:5  
+// next:2   next:3   next:4   next:5   next:null
