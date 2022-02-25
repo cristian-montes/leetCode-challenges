@@ -108,3 +108,32 @@ tree.insert(9);
 //     tree.right = node.right === null ? null :  transverse(node.right);
 //     return tree;
 // }
+// *************************************** LETCODE CHALLENGES **************************************************//
+//**** BINARY TREE INORDER TRAVERSAL ****
+var TreeNode = /** @class */ (function () {
+    function TreeNode(val, left, right) {
+        this.val = (val === undefined ? 0 : val);
+        this.left = (left === undefined ? null : left);
+        this.right = (right === undefined ? null : right);
+    }
+    return TreeNode;
+}());
+function inorderTraversal(root) {
+    if (!root)
+        return [];
+    var inOrderNodes = [];
+    var isEmpty = function (a) { return a.length === 0; };
+    var current = root;
+    var stack = [];
+    while (current !== null || !isEmpty(stack)) {
+        while (current !== null) {
+            stack.push(current);
+            current = current.left;
+        }
+        current = stack.pop();
+        inOrderNodes.push(current.val);
+        current = current.right;
+    }
+    return inOrderNodes;
+}
+;
