@@ -133,3 +133,42 @@ tree.insert(9);
 //     tree.right = node.right === null ? null :  transverse(node.right);
 //     return tree;
 // }
+
+// *************************************** LETCODE CHALLENGES **************************************************//
+
+//**** BINARY TREE INORDER TRAVERSAL ****
+
+ class TreeNode {
+     val: number
+     left: TreeNode | null
+     right: TreeNode | null
+     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+         this.val = (val===undefined ? 0 : val)
+         this.left = (left===undefined ? null : left)
+         this.right = (right===undefined ? null : right)
+     }
+ }
+
+
+function inorderTraversal(root: TreeNode | null): number[] {
+   if(!root) return [];
+
+    let inOrderNodes: number[] = [];
+    const isEmpty = <T>(a: T[]): boolean => a.length === 0;
+
+    let current: TreeNode | null = root;
+    const stack: TreeNode[] = [];
+
+    while(current !== null || !isEmpty(stack)){
+        while(current !== null){
+            stack.push(current)
+            current = current.left
+        }
+
+        current = stack.pop()!;
+        inOrderNodes.push(current.val);
+        current = current.right;
+    }
+
+    return inOrderNodes;
+};
