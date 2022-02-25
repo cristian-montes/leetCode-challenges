@@ -172,3 +172,31 @@ function inorderTraversal(root: TreeNode | null): number[] {
 
     return inOrderNodes;
 };
+
+
+//**** BINARY TREE PREORDER TRAVERSAL ****
+
+function preorderTraversal(root: TreeNode | null): number[] {
+    if(!root) return [];
+
+    let preOderNodes: number[] = [];
+
+    let current: TreeNode | null = root;
+    const isEmpty = <T>(a: T[]): boolean => a.length === 0;
+
+    const stack: TreeNode[] =[];
+
+    while( current !== null || !isEmpty(stack)){
+        while(current !== null){
+            preOderNodes.push(current.val)
+            stack.push(current)
+            current = current.left
+        }
+
+        current = stack.pop()!;
+        current =  current.right;
+
+    }
+
+    return preOderNodes;
+};

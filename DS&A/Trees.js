@@ -137,3 +137,23 @@ function inorderTraversal(root) {
     return inOrderNodes;
 }
 ;
+//**** BINARY TREE PREORDER TRAVERSAL ****
+function preorderTraversal(root) {
+    if (!root)
+        return [];
+    var preOderNodes = [];
+    var current = root;
+    var isEmpty = function (a) { return a.length === 0; };
+    var stack = [];
+    while (current !== null || !isEmpty(stack)) {
+        while (current !== null) {
+            preOderNodes.push(current.val);
+            stack.push(current);
+            current = current.left;
+        }
+        current = stack.pop();
+        current = current.right;
+    }
+    return preOderNodes;
+}
+;
