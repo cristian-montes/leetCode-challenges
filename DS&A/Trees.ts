@@ -174,7 +174,7 @@ function inorderTraversal(root: TreeNode | null): number[] {
 };
 
 
-//**** BINARY TREE PREORDER TRAVERSAL ****
+//**** 144 BINARY TREE PREORDER TRAVERSAL ****
 
 function preorderTraversal(root: TreeNode | null): number[] {
     if(!root) return [];
@@ -201,7 +201,7 @@ function preorderTraversal(root: TreeNode | null): number[] {
     return preOderNodes;
 };
 
-//**** BINARY TREE POSTORDER TRAVERSAL ****
+//**** 145 - BINARY TREE POSTORDER TRAVERSAL ****
 function postorderTraversal(root: TreeNode | null): number[] {
     if(!root) return [];
 
@@ -232,3 +232,31 @@ function postorderTraversal(root: TreeNode | null): number[] {
 
     return postOderNodes;
 };
+
+//**** 100 - SAME TREE ****
+function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
+
+    const stack: (TreeNode | null)[] = [p, q];
+
+    while(stack.length){
+        const [top1, top2] = [stack.pop(), stack.pop()]
+
+
+        if(top1?.val !== top2?.val){
+            return false;
+        }
+        
+
+        if(top1?.left || top2?.left){
+            stack.push(top1?.left!, top2?.left!)
+        }
+        
+
+        if(top1?.right || top2?.right){
+            stack.push(top1?.right!, top2?.right!)
+        }
+    }
+
+    return true;
+
+}

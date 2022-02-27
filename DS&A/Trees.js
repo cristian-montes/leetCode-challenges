@@ -157,3 +157,30 @@ function preorderTraversal(root) {
     return preOderNodes;
 }
 ;
+//**** BINARY TREE POSTORDER TRAVERSAL ****
+function postorderTraversal(root) {
+    if (!root)
+        return [];
+    var postOderNodes = [];
+    var stack = [];
+    var current = root;
+    var previousNode = null;
+    while (current !== null || stack.length) {
+        if (current !== null) {
+            stack.push(current);
+            current = current.left;
+        }
+        else {
+            var peekNode = stack[stack.length - 1];
+            if ((peekNode === null || peekNode === void 0 ? void 0 : peekNode.right) !== null && (peekNode === null || peekNode === void 0 ? void 0 : peekNode.right) !== previousNode) {
+                current = peekNode === null || peekNode === void 0 ? void 0 : peekNode.right;
+            }
+            else {
+                postOderNodes.push(peekNode.val);
+                previousNode = stack.pop();
+            }
+        }
+    }
+    return postOderNodes;
+}
+;
