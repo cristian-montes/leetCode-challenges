@@ -200,3 +200,35 @@ function preorderTraversal(root: TreeNode | null): number[] {
 
     return preOderNodes;
 };
+
+//**** BINARY TREE POSTORDER TRAVERSAL ****
+function postorderTraversal(root: TreeNode | null): number[] {
+    if(!root) return [];
+
+    let postOderNodes: number[] = [];
+    const stack: TreeNode[] =[];
+
+    let current: TreeNode | null = root;
+    
+    let previousNode: TreeNode | null = null;
+
+    while(current !== null || stack.length){
+
+       if(current !== null){
+            stack.push(current);
+            current =  current.left;
+        } else {
+
+            let peekNode = stack[stack.length - 1];
+            if(peekNode?.right !== null && peekNode?.right !== previousNode){
+                current = peekNode?.right!;
+            } else {
+                postOderNodes.push(peekNode.val);
+                previousNode = stack.pop()!;
+            }
+
+        }
+    }
+
+    return postOderNodes;
+};
