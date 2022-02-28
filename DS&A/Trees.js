@@ -201,16 +201,23 @@ function isSameTree(p, q) {
     }
     return true;
 }
-// const treeP =  new BinarySearchTree();
-// treeP.insert(1)
-// treeP.insert(3)
-// treeP.insert(4)
-// treeP.insert(7)
-// treeP.insert(5)
-// const treeQ =  new BinarySearchTree();
-// treeQ.insert(1)
-// treeQ.insert(3)
-// treeQ.insert(4)
-// treeQ.insert(7)
-// treeQ.insert(5)
-// // isSameTree(treeP,treeQ);
+//*********************************** 101 - SYMMETRIC TREE *********************************** 
+function isSymmetric(root) {
+    var subLeft = root.left;
+    var subRight = root.right;
+    var stack = [subLeft, subRight];
+    while (stack.length) {
+        var _a = [stack.pop(), stack.pop()], subLeftNode = _a[0], subRightNode = _a[1];
+        if ((subLeftNode === null || subLeftNode === void 0 ? void 0 : subLeftNode.val) !== (subRightNode === null || subRightNode === void 0 ? void 0 : subRightNode.val)) {
+            return false;
+        }
+        if ((subLeftNode === null || subLeftNode === void 0 ? void 0 : subLeftNode.left) || (subRightNode === null || subRightNode === void 0 ? void 0 : subRightNode.right)) {
+            stack.push(subLeftNode === null || subLeftNode === void 0 ? void 0 : subLeftNode.left, subRightNode === null || subRightNode === void 0 ? void 0 : subRightNode.right);
+        }
+        if ((subLeftNode === null || subLeftNode === void 0 ? void 0 : subLeftNode.right) || (subRightNode === null || subRightNode === void 0 ? void 0 : subRightNode.left)) {
+            stack.push(subLeftNode === null || subLeftNode === void 0 ? void 0 : subLeftNode.right, subRightNode === null || subRightNode === void 0 ? void 0 : subRightNode.left);
+        }
+    }
+    return true;
+}
+;

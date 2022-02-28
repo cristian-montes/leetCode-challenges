@@ -261,18 +261,34 @@ function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
 
 }
 
-// const treeP =  new BinarySearchTree();
-// treeP.insert(1)
-// treeP.insert(3)
-// treeP.insert(4)
-// treeP.insert(7)
-// treeP.insert(5)
+//*********************************** 101 - SYMMETRIC TREE *********************************** 
+function isSymmetric(root: TreeNode | null): boolean {
 
-// const treeQ =  new BinarySearchTree();
-// treeQ.insert(1)
-// treeQ.insert(3)
-// treeQ.insert(4)
-// treeQ.insert(7)
-// treeQ.insert(5)
+    const subLeft:TreeNode | null  = root!.left;
+    const subRight:TreeNode | null = root!.right;
 
-// // isSameTree(treeP,treeQ);
+    const stack:(TreeNode | null)[] = [subLeft, subRight]
+
+    while(stack.length){
+       
+        const [subLeftNode, subRightNode] = [stack.pop(), stack.pop()];
+
+        if(subLeftNode?.val !== subRightNode?.val){
+            return false;
+        }
+
+        if(subLeftNode?.left || subRightNode?.right){
+            stack.push(subLeftNode?.left!, subRightNode?.right!)
+        }
+
+        if(subLeftNode?.right || subRightNode?.left){
+            stack.push(subLeftNode?.right!, subRightNode?.left!)
+        }
+
+
+    }
+
+    return true;
+
+
+};
