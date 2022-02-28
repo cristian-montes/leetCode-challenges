@@ -1,3 +1,4 @@
+"use strict";
 //****** BINARY TREES ******/
 // each node can only have 0,1 or 2 nodes.
 // each child can only have on parent. 
@@ -6,6 +7,7 @@
 // DELETE O(log N)
 // O(log N) it is just looking throught a phone book... you dont need to look through every single page, instead you go the that "section" and began looking there.you 
 // OR  devide and conquer.
+exports.__esModule = true;
 // *** HEIGH OF TREE ***//
 // # of node = 2^h - 1;
 // log nodes = height;
@@ -219,5 +221,27 @@ function isSymmetric(root) {
         }
     }
     return true;
+}
+;
+//*********************************** 104 - MAXIMUM DEPTH OF BINARY TREE *********************************** 
+function maxDepth(root) {
+    if (!root)
+        return 0;
+    var depth = 0;
+    var queue = [root];
+    while (queue.length !== 0) {
+        depth++;
+        var length_1 = queue.length;
+        for (var i = 0; i < length_1; i++) {
+            if (queue[i].left) {
+                queue.push(queue[i].left);
+            }
+            if (queue[i].right) {
+                queue.push(queue[i].right);
+            }
+        }
+        queue.splice(0, length_1);
+    }
+    return depth;
 }
 ;

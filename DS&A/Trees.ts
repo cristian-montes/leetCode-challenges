@@ -7,6 +7,8 @@
 // O(log N) it is just looking throught a phone book... you dont need to look through every single page, instead you go the that "section" and began looking there.you 
 // OR  devide and conquer.
 
+import { setConstantValue } from "typescript";
+
 
 // *** HEIGH OF TREE ***//
 // # of node = 2^h - 1;
@@ -285,10 +287,36 @@ function isSymmetric(root: TreeNode | null): boolean {
             stack.push(subLeftNode?.right!, subRightNode?.left!)
         }
 
-
     }
 
     return true;
 
+
+};
+
+//*********************************** 104 - MAXIMUM DEPTH OF BINARY TREE *********************************** 
+function maxDepth(root: TreeNode | null): number {
+    if(!root) return 0;
+
+    let depth =  0;
+
+    let queue = [root];
+
+    while(queue.length !== 0){
+        depth++;
+        let length = queue.length
+        for(let i = 0; i < length; i++){
+            if(queue[i].left){
+                queue.push(queue[i].left!)
+            }
+
+            if(queue[i].right){
+                queue.push(queue[i].right!)
+            }
+        }
+        queue.splice(0, length);
+    }
+
+    return depth;
 
 };
