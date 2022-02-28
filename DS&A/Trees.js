@@ -137,7 +137,7 @@ function inorderTraversal(root) {
     return inOrderNodes;
 }
 ;
-//**** BINARY TREE PREORDER TRAVERSAL ****
+//**** 144 BINARY TREE PREORDER TRAVERSAL ****
 function preorderTraversal(root) {
     if (!root)
         return [];
@@ -157,7 +157,7 @@ function preorderTraversal(root) {
     return preOderNodes;
 }
 ;
-//**** BINARY TREE POSTORDER TRAVERSAL ****
+//**** 145 - BINARY TREE POSTORDER TRAVERSAL ****
 function postorderTraversal(root) {
     if (!root)
         return [];
@@ -184,3 +184,33 @@ function postorderTraversal(root) {
     return postOderNodes;
 }
 ;
+//**** 100 - SAME TREE ****
+function isSameTree(p, q) {
+    var stack = [p, q];
+    while (stack.length) {
+        var _a = [stack.pop(), stack.pop()], top1 = _a[0], top2 = _a[1];
+        if ((top1 === null || top1 === void 0 ? void 0 : top1.val) !== (top2 === null || top2 === void 0 ? void 0 : top2.val)) {
+            return false;
+        }
+        if ((top1 === null || top1 === void 0 ? void 0 : top1.left) || (top2 === null || top2 === void 0 ? void 0 : top2.left)) {
+            stack.push(top1 === null || top1 === void 0 ? void 0 : top1.left, top2 === null || top2 === void 0 ? void 0 : top2.left);
+        }
+        if ((top1 === null || top1 === void 0 ? void 0 : top1.right) || (top2 === null || top2 === void 0 ? void 0 : top2.right)) {
+            stack.push(top1 === null || top1 === void 0 ? void 0 : top1.right, top2 === null || top2 === void 0 ? void 0 : top2.right);
+        }
+    }
+    return true;
+}
+// const treeP =  new BinarySearchTree();
+// treeP.insert(1)
+// treeP.insert(3)
+// treeP.insert(4)
+// treeP.insert(7)
+// treeP.insert(5)
+// const treeQ =  new BinarySearchTree();
+// treeQ.insert(1)
+// treeQ.insert(3)
+// treeQ.insert(4)
+// treeQ.insert(7)
+// treeQ.insert(5)
+// // isSameTree(treeP,treeQ);

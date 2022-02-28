@@ -260,3 +260,19 @@ function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
     return true;
 
 }
+
+// const treeP =  new BinarySearchTree();
+// treeP.insert(1)
+// treeP.insert(3)
+// treeP.insert(4)
+// treeP.insert(7)
+// treeP.insert(5)
+
+// const treeQ =  new BinarySearchTree();
+// treeQ.insert(1)
+// treeQ.insert(3)
+// treeQ.insert(4)
+// treeQ.insert(7)
+// treeQ.insert(5)
+
+// // isSameTree(treeP,treeQ);
