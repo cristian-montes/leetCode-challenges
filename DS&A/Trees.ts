@@ -177,7 +177,6 @@ function inorderTraversal(root: TreeNode | null): number[] {
 
 
 //**** 144 BINARY TREE PREORDER TRAVERSAL ****
-
 function preorderTraversal(root: TreeNode | null): number[] {
     if(!root) return [];
 
@@ -318,5 +317,87 @@ function maxDepth(root: TreeNode | null): number {
     }
 
     return depth;
+
+};
+
+//*********************************** 543 - DIAMETER OF BINARY TREE *********************************** 
+
+function diameterOfBinaryTree(root: TreeNode | null): number {
+    if(!root) {
+        return 0;
+    }
+
+    let inputStack = [];
+    let outputStack = [];
+    
+    let diameter = 0;
+    
+    
+    inputStack.push(root);
+
+    // post order traversal
+    while(inputStack.length > 0) {
+        const node = inputStack.pop();
+        
+        outputStack.push(node);
+        if (node!.left) {
+            inputStack.push(node!.left);
+        } 
+        
+        if (node!.right) {
+            inputStack.push(node!.right)
+        }
+    }
+
+    while (outputStack.length > 0) {
+
+        const node = outputStack.pop();
+        let leftHeight = 0;
+        let rightHeight = 0;
+
+        if (node!.left) {
+            leftHeight = 1 + node!.left.height;
+        }
+        
+        if (node!.right) {
+            rightHeight = 1 + node!.right.height;
+        }
+        
+        let nodeDiameter = leftHeight + rightHeight;
+        node!.height = Math.max(leftHeight, rightHeight);
+        
+        if (nodeDiameter > diameter) {
+            diameter = nodeDiameter;
+        }
+
+    }
+    
+    return diameter;
+
+
+
+
+
+    // while (outputStack.length > 0) {
+
+    //     const node = outputStack.pop();
+    //     let leftHeight = 0;
+    //     let rightHeight = 0;
+
+    //     if (node!.left) {
+    //         leftHeight = 1 + node!.left.height;
+    //     }
+        
+    //     if (node!.right) {
+    //         rightHeight = 1 + node!.right.height;
+    //     }
+        
+    //     let nodeDiameter = leftHeight + rightHeight;
+    //     node!.height = Math.max(leftHeight, rightHeight);
+        
+    //     if (nodeDiameter > diameter) {
+    //         diameter = nodeDiameter;
+    //     }
+
 
 };
