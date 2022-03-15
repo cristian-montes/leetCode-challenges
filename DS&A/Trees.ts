@@ -51,12 +51,14 @@ import { setConstantValue } from "typescript";
 class treeNode {
     left: null | treeNode;
     right: null | treeNode;
-    value: string | number
+    value: string | number;
+    sum:  null |number
 
     constructor(value: string | number){
         this.left = null;
         this.right = null;
-        this.value = value
+        this.value = value;
+        this.sum = null
     }
 }
 
@@ -144,10 +146,12 @@ tree.insert(9);
      val: number
      left: TreeNode | null
      right: TreeNode | null
-     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+     sum:  null |number
+     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null, sum?: null | number) {
          this.val = (val===undefined ? 0 : val)
          this.left = (left===undefined ? null : left)
          this.right = (right===undefined ? null : right)
+         this.sum = (sum ===undefined ? null : sum)
      }
  }
 
@@ -356,15 +360,15 @@ function diameterOfBinaryTree(root: TreeNode | null): number {
         let rightHeight = 0;
 
         if (node!.left) {
-            leftHeight = 1 + node!.left.height;
+            leftHeight = 1 + node!.left.val;
         }
         
         if (node!.right) {
-            rightHeight = 1 + node!.right.height;
+            rightHeight = 1 + node!.right.val;
         }
         
         let nodeDiameter = leftHeight + rightHeight;
-        node!.height = Math.max(leftHeight, rightHeight);
+        node!.val = Math.max(leftHeight, rightHeight);
         
         if (nodeDiameter > diameter) {
             diameter = nodeDiameter;
@@ -373,6 +377,63 @@ function diameterOfBinaryTree(root: TreeNode | null): number {
     }
     
     return diameter;
+
+
+
+//*********************************** 563 - BINARY TREE TILT*********************************** 
+function findTilt(root: TreeNode | null): number {
+
+    if(!root){
+        return 0;
+    }
+
+    let stack1 = [];
+    let stack2 = [];
+
+    stack1.push(root);
+
+    //post-order-traversal
+    while(stack1.length){
+        let node = stack1.pop();
+
+        stack2.push(node);
+
+        if(node?.left){
+            stack1.push(node.left);
+        }
+
+        if(node?.right){
+            stack1.push(node.right);
+        }
+
+    }
+
+    let totalTilt = 0;
+
+    while(stack2.length){
+        let node = stack2.pop();
+
+        if(!node?.left && !node?.right){
+            node!.sum = node!.val
+        } else {
+            const leftSum = node.left ? node.left.sum : 0;
+            const rightSum = node.right ? node.right.sum: 0;
+
+            const diff = Math.abs(leftSum! - rightSum!);
+
+            totalTilt += diff;
+
+            node.sum = node.val + leftSum! + rightSum!;
+        }
+
+    }
+
+    return totalTilt;
+
+
+};
+
+
 
 
 

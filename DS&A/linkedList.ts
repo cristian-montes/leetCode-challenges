@@ -160,7 +160,7 @@ class LinkedList {
     const leader = this.traverseToIndex(index-1);
     const holdingPointer = leader.next
     leader.next = newNode;
-    newNode.next = holdingPointer;
+    newNode.next = holdingPointer!;
     this.length++;
 
     }
@@ -333,3 +333,5 @@ function deleteNode(root: ListNode | null): void {
 };
 // val:1    val:2    val:3    val:4    val:5  
 // next:2   next:3   next:4   next:5   next:null
+
+
