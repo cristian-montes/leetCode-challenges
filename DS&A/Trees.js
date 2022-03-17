@@ -1,13 +1,6 @@
 "use strict";
-//****** BINARY TREES ******/
-// each node can only have 0,1 or 2 nodes.
-// each child can only have on parent. 
-// LOOKUP O(log N)
-// INSERT O(log N)
-// DELETE O(log N)
-// O(log N) it is just looking throught a phone book... you dont need to look through every single page, instead you go the that "section" and began looking there.you 
-// OR  devide and conquer.
 exports.__esModule = true;
+var Collections = require("typescript-collections");
 // *** HEIGH OF TREE ***//
 // # of node = 2^h - 1;
 // log nodes = height;
@@ -43,6 +36,7 @@ var treeNode = /** @class */ (function () {
         this.left = null;
         this.right = null;
         this.value = value;
+        this.sum = null;
     }
     return treeNode;
 }());
@@ -113,10 +107,11 @@ tree.insert(9);
 // *************************************** LETCODE CHALLENGES **************************************************//
 //**** BINARY TREE INORDER TRAVERSAL ****
 var TreeNode = /** @class */ (function () {
-    function TreeNode(val, left, right) {
+    function TreeNode(val, left, right, sum) {
         this.val = (val === undefined ? 0 : val);
         this.left = (left === undefined ? null : left);
         this.right = (right === undefined ? null : right);
+        this.sum = (sum === undefined ? null : sum);
     }
     return TreeNode;
 }());
@@ -245,3 +240,106 @@ function maxDepth(root) {
     return depth;
 }
 ;
+//*********************************** 543 - DIAMETER OF BINARY TREE *********************************** 
+function diameterOfBinaryTree(root) {
+    if (!root) {
+        return 0;
+    }
+    var inputStack = [];
+    var outputStack = [];
+    var diameter = 0;
+    inputStack.push(root);
+    // post order traversal
+    while (inputStack.length > 0) {
+        var node = inputStack.pop();
+        outputStack.push(node);
+        if (node.left) {
+            inputStack.push(node.left);
+        }
+        if (node.right) {
+            inputStack.push(node.right);
+        }
+    }
+    while (outputStack.length > 0) {
+        var node = outputStack.pop();
+        var leftHeight = 0;
+        var rightHeight = 0;
+        if (node.left) {
+            leftHeight = 1 + node.left.val;
+        }
+        if (node.right) {
+            rightHeight = 1 + node.right.val;
+        }
+        var nodeDiameter = leftHeight + rightHeight;
+        node.val = Math.max(leftHeight, rightHeight);
+        if (nodeDiameter > diameter) {
+            diameter = nodeDiameter;
+        }
+    }
+    return diameter;
+}
+//*********************************** 563 - BINARY TREE TILT*********************************** 
+function findTilt(root) {
+    if (!root) {
+        return 0;
+    }
+    var stack1 = [];
+    var stack2 = [];
+    stack1.push(root);
+    //post-order-traversal
+    while (stack1.length) {
+        var node = stack1.pop();
+        stack2.push(node);
+        if (node === null || node === void 0 ? void 0 : node.left) {
+            stack1.push(node.left);
+        }
+        if (node === null || node === void 0 ? void 0 : node.right) {
+            stack1.push(node.right);
+        }
+    }
+    var totalTilt = 0;
+    while (stack2.length) {
+        var node = stack2.pop();
+        if (!(node === null || node === void 0 ? void 0 : node.left) && !(node === null || node === void 0 ? void 0 : node.right)) {
+            node.sum = node.val;
+        }
+        else {
+            var leftSum = node.left ? node.left.sum : 0;
+            var rightSum = node.right ? node.right.sum : 0;
+            var diff = Math.abs(leftSum - rightSum);
+            totalTilt += diff;
+            node.sum = node.val + leftSum + rightSum;
+        }
+    }
+    return totalTilt;
+}
+;
+//03.16.2022
+//*********************************** 03 - LONGEST STUBSTRING WITHOUT REPEATING CHARACTERS *********************************** 
+// s = "abcabcbb"
+//i = 
+//x = 
+//set =
+//size=
+function lengthOfLongestSubstring(s) {
+    var longestString = 0;
+    for (var i = 0; i < s.length; i++) {
+        var subStringsSet = new Collections.Set();
+        for (var x = i; x < s.length; x++) {
+            if (subStringsSet.contains(s[x])) {
+                //Move on from the current letter without adding it(as it already exists in the set)
+                break;
+            }
+            else {
+                subStringsSet.add(s[x]);
+            }
+        }
+        // update is the longest string length (if the one in this iteration is longer)
+        longestString = Math.max(longestString, subStringsSet.size());
+    }
+    console.log(longestString);
+    return longestString;
+}
+;
+var s = "abcabcbb";
+lengthOfLongestSubstring(s);

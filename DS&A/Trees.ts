@@ -1,3 +1,4 @@
+import Collections = require('typescript-collections');
 //****** BINARY TREES ******/
 // each node can only have 0,1 or 2 nodes.
 // each child can only have on parent. 
@@ -379,7 +380,7 @@ function diameterOfBinaryTree(root: TreeNode | null): number {
     return diameter;
 
 
-
+}
 //*********************************** 563 - BINARY TREE TILT*********************************** 
 function findTilt(root: TreeNode | null): number {
 
@@ -434,31 +435,40 @@ function findTilt(root: TreeNode | null): number {
 };
 
 
+//03.16.2022
+//*********************************** 03 - LONGEST STUBSTRING WITHOUT REPEATING CHARACTERS *********************************** 
 
+// s = "abcabcbb"
+//i = 
+//x = 
+//set =
+//size=
+function lengthOfLongestSubstring(s: string): number {
 
+   let longestString = 0;
 
+    for(let i = 0; i<s.length; i++){
+        let subStringsSet = new Collections.Set<string>();
 
+        for(let x = i; x < s.length; x++ ){
+            if(subStringsSet.contains(s[x])){
+                //Move on from the current letter without adding it(as it already exists in the set)
+                break;
+            } else {
+                subStringsSet.add(s[x]);
+            }
+        }
 
-    // while (outputStack.length > 0) {
-
-    //     const node = outputStack.pop();
-    //     let leftHeight = 0;
-    //     let rightHeight = 0;
-
-    //     if (node!.left) {
-    //         leftHeight = 1 + node!.left.height;
-    //     }
-        
-    //     if (node!.right) {
-    //         rightHeight = 1 + node!.right.height;
-    //     }
-        
-    //     let nodeDiameter = leftHeight + rightHeight;
-    //     node!.height = Math.max(leftHeight, rightHeight);
-        
-    //     if (nodeDiameter > diameter) {
-    //         diameter = nodeDiameter;
-    //     }
-
+        // update is the longest string length (if the one in this iteration is longer)
+        longestString = Math.max( 
+            longestString,
+            subStringsSet.size()
+        )
+    }
+    // console.log(longestString)
+    return longestString;
 
 };
+
+let s = "abcabcbb";
+lengthOfLongestSubstring(s)
