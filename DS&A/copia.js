@@ -1,4 +1,13 @@
 "use strict";
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 exports.__esModule = true;
 // 3. reverse parsin
 // 1. Minimum Amount
@@ -30,7 +39,28 @@ function calculateAmount(prices) {
 // 10          2    0  4  54 0 3 = 73
 // let prices = [1,2,4,4] 
 //       1   1  2 0 =  4 
-var prices = [1, 2];
+// let prices = [1,2]
 // 1 1 = 2
-calculateAmount(prices);
-// 2. Number of moveSyntheticComments
+// calculateAmount(prices)
+//*********************************** 02 - MEDIAN OF TWO SORTED ARRAYS  *********************************** 
+function findMedianSortedArrays(nums1, nums2) {
+    var sortedArr = __spreadArray(__spreadArray([], nums1, true), nums2, true).sort(function (a, b) { return a - b; });
+    console.log('sortedArr -->', sortedArr);
+    if (sortedArr.length % 2 === 0) {
+        var startOfMidle = (sortedArr.length / 2) - 1;
+        var endOfMiddle = startOfMidle + 1;
+        var median = (sortedArr[startOfMidle] + sortedArr[endOfMiddle]) / 2;
+        console.log('medianEven -->', median);
+        return median;
+    }
+    else {
+        var medianIndex = Math.ceil((sortedArr.length / 2)) - 1;
+        var median = sortedArr[medianIndex];
+        console.log('mediaOdd -->', median);
+        return median;
+    }
+    // return sortedArr[0];
+}
+;
+var nums1 = [1, 3, 6, 7], nums2 = [2, 8, 0];
+findMedianSortedArrays(nums1, nums2);

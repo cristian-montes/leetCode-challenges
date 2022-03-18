@@ -33,9 +33,34 @@ function calculateAmount(prices: number[]) {
 // 10          2    0  4  54 0 3 = 73
 // let prices = [1,2,4,4] 
 //       1   1  2 0 =  4 
-let prices = [1,2]
+// let prices = [1,2]
 // 1 1 = 2
-calculateAmount(prices)
+// calculateAmount(prices)
 
 
-// 2. Number of moveSyntheticComments
+//*********************************** 02 - MEDIAN OF TWO SORTED ARRAYS  *********************************** 
+
+function findMedianSortedArrays(nums1: number[], nums2: number[]): number {
+
+    let sortedArr = [...nums1, ...nums2 ].sort((a, b) => a -b);
+
+    console.log('sortedArr -->',sortedArr)
+
+    if(sortedArr.length % 2 === 0){
+        let startOfMidle = (sortedArr.length/2) - 1;
+        let endOfMiddle = startOfMidle + 1;
+        let median = (sortedArr[startOfMidle] + sortedArr[endOfMiddle])/2;
+        console.log('medianEven -->', median)
+        return median
+    } else {
+        let medianIndex = Math.ceil((sortedArr.length/2)) - 1;
+        let median = sortedArr[medianIndex]
+        console.log('mediaOdd -->',median)
+        return median; 
+    }
+
+};
+
+let nums1 = [1,3,6,7], nums2 = [2,8,0];
+
+findMedianSortedArrays(nums1, nums2);
