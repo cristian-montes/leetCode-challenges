@@ -749,18 +749,18 @@ var squareIsWhite = function(coordinates) {
 
 
 // 409 LONGEST PALINDRONME  ------*****----**** solution not working
-var longestPalindrome = function(s) {
-    let ll = 0, rr=0;
+// var longestPalindrome = function(s) {
+//     let ll = 0, rr=0;
 
-    for(let i = 0; i < s.length; i++){
-        for(let j  of [i, i+1]){
-            for (l = i, r=j; s[l] && s[l] === s[r]; l--, r++)
-            [ll, rr] = (r-l+1)>(rr-ll+1) ? [l, r] : [ll, rr];
-        }
-    }
+//     for(let i = 0; i < s.length; i++){
+//         for(let j  of [i, i+1]){
+//             for (l = i, r=j; s[l] && s[l] === s[r]; l--, r++)
+//             [ll, rr] = (r-l+1)>(rr-ll+1) ? [l, r] : [ll, rr];
+//         }
+//     }
   
-    return s.substring(ll, rr+1);
-};
+//     return s.substring(ll, rr+1);
+// };
 
 // s = "abccccdd"
 // longestPalindrome(s)
@@ -1345,9 +1345,84 @@ var isIsomorphic = function(s, t) {
 
 };
 
-s = "paper", t = "title"
-isIsomorphic(s, t)
+// s = "paper", t = "title"
+// isIsomorphic(s, t)
+
+//03.16.2022
+//*********************************** 03 - LONGEST STUBSTRING WITHOUT REPEATING CHARACTERS *********************************** 
+
+// s = "abcabcbb"
+//i = 
+//x = 
+//set =
+//size=
+function lengthOfLongestSubstring(s) {
+
+   let longestString = 0;
+
+    for(let i = 0; i<s.length; i++){
+        let subStringsSet = new Set();
+
+        for(let x = i; x < s.length; x++ ){
+            if(subStringsSet.contains(s[x])){
+                //Move on from the current letter without adding it(as it already exists in the set)
+                break;
+            } else {
+                subStringsSet.add(s[x]);
+            }
+        }
+
+        // update is the longest string length (if the one in this iteration is longer)
+        longestString = Math.max( 
+            longestString,
+            subStringsSet.size()
+        )
+    }
+    // console.log(longestString)
+    return longestString;
+
+};
+
+// let s = "abcabcbb";
+// lengthOfLongestSubstring(s)
 
 
+//*********************************** 03 - LONGEST PALIDROM WITH STUBSTRING  *********************************** 
 
+const longestPalindrome = (x) => {
+    if (x.length < 2) return x;
+    let maxPalindrome = ''
+    
+    for (let i = 0; i < x.length; i++) {
 
+        // find longest palindrome as if current letter is center of palindrome of odd length eg. "aba"
+        let oddLengthPalindrome = palindromeBuilder(i, i, x); 
+
+        // find longext palindrome ax if current letter ix next to center of palindrome eg. "abba"
+        let evenLengthPalindrome = palindromeBuilder(i, i + 1, x); 
+
+        // take the longext of the two palindromex
+        let currentMax = oddLengthPalindrome.length < evenLengthPalindrome.length ? evenLengthPalindrome : oddLengthPalindrome;
+
+		// xet the max to the new palindrome if it ix longer
+        maxPalindrome = currentMax.length > maxPalindrome.length ? currentMax : maxPalindrome;
+    }
+    return maxPalindrome
+};
+
+let x = "babad";
+//       01234
+const palindromeBuilder = (left, right, x) => {
+    
+    
+    let curr = ''
+	// while left bound and right bound are within the xtring and the left character ix the xame ax the right
+    while (left >= 0 && right < x.length && x[left] === x[right]){
+        curr = x.slice(left, right + 1);
+        left-- // move left bound left
+        right++ // move right bound right
+    }
+    return curr
+};
+
+longestPalindrome(x);
