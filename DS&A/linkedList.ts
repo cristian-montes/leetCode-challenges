@@ -1,3 +1,5 @@
+import Collections = require('typescript-collections');
+
 //Javascript does not come with linkedlist built in.
 //https://visualgo.net/en/list --> visual representation of how linked list work
 // traversing through a Linked List is slower than iterating through an array eventhough they both have O(n) time complexity, but this is because in an array data is organized right next eachother in memory, and in a Linked List the data is all scartted around in memory.
@@ -335,3 +337,32 @@ function deleteNode(root: ListNode | null): void {
 // next:2   next:3   next:4   next:5   next:null
 
 
+
+// ***** 243 PALIMDROME LINKED LIST ***** //
+function isPalindrome(head: ListNode | null): boolean {
+    let uniqueValues: number[] = [];
+    let currenHead = head;
+    
+    while(currenHead !== null ){
+            // console.log(currenHead.val)
+            uniqueValues.push(currenHead.val);
+  
+            currenHead = currenHead.next;
+        
+    };
+    
+    let jointHead = uniqueValues.join('')
+ 
+    let reversedHead =  uniqueValues.reverse().join('');
+    
+    if(reversedHead === jointHead){
+        return true
+    }
+
+    return false;
+
+};
+
+
+// val:1    val:2    val:3    val:4    val:5  
+// next:2   next:3   next:4   next:5   next:null

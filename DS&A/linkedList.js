@@ -1,6 +1,5 @@
-//Javascript does not come with linkedlist built in.
-//https://visualgo.net/en/list --> visual representation of how linked list work
-// traversing through a Linked List is slower than iterating through an array eventhough they both have O(n) time complexity, but this is because in an array data is organized right next eachother in memory, and in a Linked List the data is all scartted around in memory.
+"use strict";
+exports.__esModule = true;
 var LinkedList = /** @class */ (function () {
     function LinkedList(value) {
         this.head = {
@@ -61,8 +60,8 @@ var LinkedList = /** @class */ (function () {
         this.tail = this.head;
         var second = currentNode.next;
         while (second) {
-            var temp = second.next;
-            second.next = currentNode;
+            var temp = second.next; //val:3 , next: null
+            second.next = currentNode; // val:2, next: { val:3, next: null}
             currentNode = second;
             second = temp;
         }
@@ -187,3 +186,63 @@ function hasCycle(head) {
     return true;
 }
 ;
+// ***** 203 REMOVE LIKNED LIST ELEMENTS *** //
+function removeElements(head, val) {
+    while (head !== null && head.val === val) {
+        head = head.next;
+    }
+    var newHead = head;
+    while (newHead !== null && newHead.next !== null) {
+        if (newHead.next.val === val) {
+            newHead.next = newHead.next.next;
+        }
+        else {
+            newHead = newHead.next;
+        }
+    }
+    return head;
+}
+;
+// ***** 206 REVERSE LINKED LIST ***** //
+//
+function reverseList(head) {
+    var currentNode = head;
+    var previous = null;
+    while (currentNode !== null) {
+        var temp = currentNode.next; // hold this value to make the loop moving
+        currentNode.next = previous; // sets the next backwards starting on null and followed by the current node
+        previous = currentNode; // then here previous is set to the new previous for the next iteration
+        currentNode = temp; // we use the temp value to make the loop iterate 
+    }
+    return previous; // return the new head call node
+}
+;
+// ***** 237 DELETE NODE IN A LINKED LIST ***** //
+// since the head isnt given, all it is needs to be done is set the given node equal to the proceding value. NO NEED FOR LOOPING!
+function deleteNode(root) {
+    root.val = root.next.val;
+    root.next = root.next.next;
+}
+;
+// val:1    val:2    val:3    val:4    val:5  
+// next:2   next:3   next:4   next:5   next:null
+// ***** 243 PALIMDROME LINKED LIST ***** //
+function isPalindrome(head) {
+    var uniqueValues = [];
+    var currenHead = head;
+    while (currenHead !== null) {
+        // console.log(currenHead.val)
+        uniqueValues.push(currenHead.val);
+        currenHead = currenHead.next;
+    }
+    ;
+    var jointHead = uniqueValues.join('');
+    var reversedHead = uniqueValues.reverse().join('');
+    if (reversedHead === jointHead) {
+        return true;
+    }
+    return false;
+}
+;
+// val:1    val:2    val:3    val:4    val:5  
+// next:2   next:3   next:4   next:5   next:null
