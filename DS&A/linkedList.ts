@@ -350,7 +350,7 @@ function isPalindrome(head: ListNode | null): boolean {
             currenHead = currenHead.next;
         
     };
-    
+
     let jointHead = uniqueValues.join('')
  
     let reversedHead =  uniqueValues.reverse().join('');
@@ -362,6 +362,38 @@ function isPalindrome(head: ListNode | null): boolean {
     return false;
 
 };
+
+
+// ***** 817 LINKED LIST COMPONENTS ***** //
+
+function numComponents(head: ListNode | null, nums: number[]): number {
+
+    const numbersSorted = new Set(nums)
+    
+    let currentNode = head;
+    let connectedComponents: number[] = [];
+    let tracker = 0;
+
+    while(currentNode !== null){
+        //if there's overlapped number, push to connectedComponents
+
+        if(numbersSorted.has(currentNode.val)){
+            connectedComponents.push(currentNode.val)
+        } else {
+            // if there is not over number increase tracker and reset connectedComponents
+
+            if(connectedComponents.length){
+                tracker++;
+                connectedComponents = [];;
+            }
+        }
+        currentNode = currentNode.next;
+    }
+    
+    //if there is numbers left in the stack return tracker plus one, else return tracker since it tracked the correct amounf of components
+ return (connectedComponents.length) ?  tracker + 1 : tracker
+};
+
 
 
 // val:1    val:2    val:3    val:4    val:5  
