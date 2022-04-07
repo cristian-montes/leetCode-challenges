@@ -130,4 +130,17 @@ function convert(s: string, numRows: number): string {
 let s = 'PAHNAPLSIIGYIR';
 let numRows = 4;
 
-convert(s, numRows);
+// convert(s, numRows);
+
+//*********************************** 242 - VALID ANAGRAM  *********************************** 
+function isAnagram(s: string, t: string): boolean {
+    const sSorted = s.split('').sort().join('');
+    
+    const tSorted = t.split('').sort().join('');
+     
+      if(sSorted === tSorted){
+          return true;
+      }
+      
+      return false;
+  };

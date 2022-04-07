@@ -1,4 +1,13 @@
 // import { moveSyntheticComments } from "typescript"
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 // 3. reverse parsin
 // 1. Minimum Amount
 // function calculateAmount(prices: number[]) {
@@ -32,22 +41,24 @@
 // 1 1 = 2
 // calculateAmount(prices)
 //*********************************** 02 - MEDIAN OF TWO SORTED ARRAYS  *********************************** 
-// function findMedianSortedArrays(nums1: number[], nums2: number[]): number {
-//     let sortedArr = [...nums1, ...nums2 ].sort((a, b) => a -b);
-//     console.log('sortedArr -->',sortedArr)
-//     if(sortedArr.length % 2 === 0){
-//         let startOfMidle = (sortedArr.length/2) - 1;
-//         let endOfMiddle = startOfMidle + 1;
-//         let median = (sortedArr[startOfMidle] + sortedArr[endOfMiddle])/2;
-//         console.log('medianEven -->', median)
-//         return median
-//     } else {
-//         let medianIndex = Math.ceil((sortedArr.length/2)) - 1;
-//         let median = sortedArr[medianIndex]
-//         console.log('mediaOdd -->',median)
-//         return median; 
-//     }
-// };
+function findMedianSortedArrays(nums1, nums2) {
+    var sortedArr = __spreadArray(__spreadArray([], nums1, true), nums2, true).sort(function (a, b) { return a - b; });
+    console.log('sortedArr -->', sortedArr);
+    if (sortedArr.length % 2 === 0) {
+        var startOfMidle = (sortedArr.length / 2) - 1;
+        var endOfMiddle = startOfMidle + 1;
+        var median = (sortedArr[startOfMidle] + sortedArr[endOfMiddle]) / 2;
+        console.log('medianEven -->', median);
+        return median;
+    }
+    else {
+        var medianIndex = Math.ceil((sortedArr.length / 2)) - 1;
+        var median = sortedArr[medianIndex];
+        console.log('mediaOdd -->', median);
+        return median;
+    }
+}
+;
 // let nums1 = [1,3,6,7], nums2 = [2,8,0];
 // findMedianSortedArrays(nums1, nums2);
 function convert(s, numRows) {
@@ -96,7 +107,17 @@ function convert(s, numRows) {
     }
     return totalString;
 }
-
+;
 var s = 'PAHNAPLSIIGYIR';
 var numRows = 4;
-convert(s, numRows);
+// convert(s, numRows);
+//*********************************** 242 - VALID ANAGRAM  *********************************** 
+function isAnagram(s, t) {
+    var sSorted = s.split('').sort().join('');
+    var tSorted = t.split('').sort().join('');
+    if (sSorted === tSorted) {
+        return true;
+    }
+    return false;
+}
+;
