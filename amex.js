@@ -75,8 +75,8 @@ var addDigits = function(num) {
  return num- (Math.floor(num/9)) * 9 || 9;
 };
 
-num =934;
-addDigits(num)
+// num =934;
+// addDigits(num)
 
 
 //415. Add Strings
@@ -107,4 +107,9 @@ num1 = "9333852702227987", num2 = "85731737104263"
 
 
 
-addStrings(num1, num2);
+// addStrings(num1, num2);
+
+
+for(var i=1; i<=100; i+2){
+    console.log(i++)
+}

@@ -394,7 +394,48 @@ function numComponents(head: ListNode | null, nums: number[]): number {
  return (connectedComponents.length) ?  tracker + 1 : tracker
 };
 
-
-
 // val:1    val:2    val:3    val:4    val:5  
 // next:2   next:3   next:4   next:5   next:null
+
+// ***** 02. ADD TWO NUMBERS ***** //
+function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {
+
+    //Initilise a new ListNode to be returned
+    let newListNode = new ListNode(0);
+    let headOfNewListNode = newListNode;
+
+    //Inistialise variables to be utilised on each run
+    let sum = 0
+    let carry = 0;
+
+    // while ther are elements (or a carried number) to add
+    while(l1 !== null || l2 !== null || sum >0){
+
+    // If there's an element in l1 to be added, add it to the sum and move to the next l1 node
+        if(l1 !== null){
+            sum = sum + l1.val;
+            l1 = l1.next;
+        }
+    // If there's an element in l2 to be added, add it to the sum and move to the next l1 node
+        if(l2 !== null){
+            sum = sum + l2.val;
+            l2 = l2.next;
+        }
+    // Check if the sum for these nodes exceeds 10
+        if(sum >= 10){
+            carry = 1;
+            sum = sum - 10;
+        }
+    // Add the sum to the nex ListNode, and then move it to the next entry
+        headOfNewListNode.next = new ListNode(sum);
+        headOfNewListNode = headOfNewListNode.next;
+    //set the sum for the next addition to equal the carry-over (if thre was one)
+        sum = carry;
+        carry = 0;
+    }
+
+    //return the constructed ListNode (ignoring the first dummy entry)
+    return newListNode.next;
+
+
+};
