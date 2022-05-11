@@ -15,3 +15,18 @@ function reverseString(s: string[]): void {
 
     console.log('reversed S', s)
 };
+
+//520. Detect Capital
+function detectCapitalUse(word: string): boolean {
+    const restOfString = word.slice(1)
+    
+    if(word.toUpperCase() === word){
+        return true;
+    } else if(word.toLowerCase() === word){
+        return true;
+    } else if(word[0] === word[0].toUpperCase() && restOfString === restOfString.toLowerCase()){
+        return true;
+    } else {
+        return false
+    }
+};
