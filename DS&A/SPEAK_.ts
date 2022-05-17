@@ -30,3 +30,24 @@ function detectCapitalUse(word: string): boolean {
         return false
     }
 };
+
+//01. Two Sum
+function twoSum(nums: number[], target: number): number[] {
+    
+    let theMatch:  number[] = [];
+    
+    for (let i = 0; i <= nums.length; i++){
+        
+        for(let j = 1; j <=nums.length; j++){
+            let sum = nums[i] + nums[j]
+            if(sum === target && i !== j){
+          
+                theMatch = [i, j]
+                return theMatch
+            }
+        };
+    };
+    
+    return theMatch;
+ 
+};
